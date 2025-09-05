@@ -1,0 +1,14 @@
+---
+import Base from "../layouts/Base.astro";
+---
+<Base title="Contact — Resilient Careers">
+  <h1 class="text-3xl font-semibold">Contact</h1>
+  <form name="contact" method="POST" data-netlify="true"
+        class="mt-6 max-w-md space-y-3">
+    <input type="hidden" name="form-name" value="contact" />
+    <input class="w-full rounded border p-2" name="name" placeholder="Name" required />
+    <input class="w-full rounded border p-2" name="email" type="email" placeholder="Email" required />
+    <textarea class="w-full rounded border p-2" name="message" rows="4" placeholder="Message"></textarea>
+    <button class="rounded bg-sky-600 px-4 py-2 font-medium text-white">Send</button>
+  </form>
+</Base>
