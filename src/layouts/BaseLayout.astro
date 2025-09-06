@@ -1,0 +1,52 @@
+---
+const { title = "Resilient Commercial Solutions LLC", description = "Resilient Commercial Solutions LLC – Licensed & Insured Facility Services Provider delivering dependable cleaning, compliance, and quality solutions across Florida, North Carolina, and beyond." } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ✅ Dynamic SEO -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- ✅ Favicon & Icons -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+
+    <!-- ✅ Open Graph / Social Sharing -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://resilient23.netlify.app/" />
+    <meta property="og:image" content="/favicon-512.png" />
+
+    <!-- ✅ Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="/favicon-512.png" />
+
+    <!-- Fonts & Styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  </head>
+
+  <body class="font-inter bg-white text-gray-900">
+    <header>
+      <!-- Add your Navbar here if global -->
+    </header>
+
+    <main>
+      <slot /> <!-- ✅ Page content renders here -->
+    </main>
+
+    <footer class="text-center text-sm text-gray-500 py-4">
+      © {new Date().getFullYear()} Resilient Commercial Solutions LLC. All rights reserved.
+    </footer>
+  </body>
+</html>
