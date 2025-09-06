@@ -1,24 +1,49 @@
 ---
-import Header from "../components/Header.astro";
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;       // e.g. "/services/"
+  ogImage?: string;         // e.g. "/og.jpg"
+}
+
+const {
+  title = "Resilient Commercial Solutions LLC",
+  description = "Dependable, compliant, high-quality facility services. Florida LLC · Hiscox CGL $2M/$2M.",
+  canonical = Astro.url.pathname,
+  ogImage = "/og-default.jpg"
+} = Astro.props;
+
+const SITE = "https://resilient23.netlify.app"; // change if custom domain
+const url = SITE.replace(/\/$/, "") + canonical;
 ---
 
-<html lang="en" class="h-full bg-slate-50">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <slot name="head" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.ico" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- Canonical -->
+    <link rel="canonical" href={url} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={url} />
+    <meta property="og:image" content={ogImage} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Minimal typography & tailwind already loaded elsewhere -->
   </head>
-  <body class="min-h-full text-slate-800">
-    <Header />
-
-    <main class="pb-20">
-      <slot />
-    </main>
-
-    <footer class="mt-16 border-t border-slate-200 bg-white">
-      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-8 text-sm text-slate-600">
-        © 2025 Resilient Commercial Solutions LLC
-      </div>
-    </footer>
+  <body class="bg-slate-50 text-slate-900">
+    <slot />
   </body>
 </html>
