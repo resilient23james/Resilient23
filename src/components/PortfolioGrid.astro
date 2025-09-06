@@ -6,34 +6,58 @@
  */
 const photos = [
   // replace these with your real filenames in /public/images/portfolio/
-  { src: "/images/portfolio/lobby-1.jpg", alt: "Lobby - post-construction clean" },
-  { src: "/images/portfolio/exam-room-1.jpg", alt: "Exam room - detail clean" },
-  { src: "/images/portfolio/hallway-1.jpg", alt: "Hallway - finish to spec" },
-  { src: "/images/portfolio/restroom-1.jpg", alt: "Restroom - turnover clean" },
-  { src: "/images/portfolio/fixtures-1.jpg", alt: "Fixtures - dust & polish" },
-  { src: "/images/portfolio/breakroom-1.jpg", alt: "Breakroom - periodic deep clean" },
+  { src: "/images/portfolio/PCLobby.jpg", alt: "Lobby - post-construction clean" },
+  { src: "/images/portfolio/PCMirror.jpg", alt: "Exam room - detail clean" },
+  { src: "/images/portfolio/PCFloor2.jpg", alt: "Hallway - finish to spec" },
+  { src: "/images/portfolio/PCRR1.jpg", alt: "Restroom - turnover clean" },
+  { src: "/images/portfolio/PCFountian.jpg", alt: "Fixtures - dust & polish" },
+  { src: "/images/portfolio/PCPlant.jpg", alt: "Breakroom - periodic deep clean" },
 ];
 ---
 
-<section class="max-w-6xl mx-auto px-6 py-12">
-  <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-4">
-    Recent Results
-  </h2>
-  <p class="text-slate-600 mb-8">
-    A few snapshots from post-construction and periodic work. More references on request.
-  </p>
+<section class="py-16">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl font-bold mb-6">Recent Results</h2>
+    <p class="mb-10 text-gray-600">
+      A few snapshots from post-construction and periodic work. More references on request.
+    </p>
 
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-    {photos.map((p) => (
-      <figure class="overflow-hidden rounded-xl border border-slate-200 bg-white">
-        <img
-          src={p.src}
-          alt={p.alt}
-          loading="lazy"
-          class="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
-        />
-        <figcaption class="px-3 py-2 text-sm text-slate-600">{p.alt}</figcaption>
-      </figure>
-    ))}
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Item -->
+      <div class="border rounded-lg overflow-hidden shadow-sm">
+        <img src="/results/lobby-clean.jpg" alt="Lobby - post-construction clean" class="w-full h-48 object-cover" />
+        <div class="p-4 font-medium">Lobby - post-construction clean</div>
+      </div>
+
+      <!-- Item -->
+      <div class="border rounded-lg overflow-hidden shadow-sm">
+        <img src="/results/exam-room.jpg" alt="Exam room - detail clean" class="w-full h-48 object-cover" />
+        <div class="p-4 font-medium">Exam room - detail clean</div>
+      </div>
+
+      <!-- Item -->
+      <div class="border rounded-lg overflow-hidden shadow-sm">
+        <img src="/results/hallway.jpg" alt="Hallway - finish to spec" class="w-full h-48 object-cover" />
+        <div class="p-4 font-medium">Hallway - finish to spec</div>
+      </div>
+
+      <!-- Item -->
+      <div class="border rounded-lg overflow-hidden shadow-sm">
+        <img src="/results/restroom.jpg" alt="Restroom - turnover clean" class="w-full h-48 object-cover" />
+        <div class="p-4 font-medium">Restroom - turnover clean</div>
+      </div>
+
+      <!-- Item -->
+      <div class="border rounded-lg overflow-hidden shadow-sm">
+        <img src="/results/fixtures.jpg" alt="Fixtures - dust & polish" class="w-full h-48 object-cover" />
+        <div class="p-4 font-medium">Fixtures - dust & polish</div>
+      </div>
+
+      <!-- Item -->
+      <div class="border rounded-lg overflow-hidden shadow-sm">
+        <img src="/results/breakroom.jpg" alt="Breakroom - periodic deep clean" class="w-full h-48 object-cover" />
+        <div class="p-4 font-medium">Breakroom - periodic deep clean</div>
+      </div>
+    </div>
   </div>
 </section>
