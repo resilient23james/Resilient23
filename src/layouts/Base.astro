@@ -1,47 +1,40 @@
 ---
-import "../global.css";
+const { title = "Resilient Commercial Solutions LLC" } = Astro.props;
 ---
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{Astro.props.title ?? "Resilient Careers"}</title>
-    <meta
-      name="description"
-      content={Astro.props.description ?? "Professional facility services and careers"}
-    />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <link rel="icon" type="image/png" href="/resilient_logo_header.png" />
     <link rel="stylesheet" href="/global.css" />
   </head>
-
-  <body class="min-h-screen bg-slate-50 text-slate-800 flex flex-col">
-    <!-- HEADER -->
-    <header class="mx-auto max-w-6xl w-full px-4 py-6 flex items-center justify-between">
-      <!-- LOGO + TITLE -->
-      <a href="/" class="flex items-center gap-3">
-        <img src="/resilient_logo_header.png" alt="Resilient Commercial Solutions" class="h-9 w-auto" />
-        <span class="text-xl font-bold">Resilient Careers</span>
-      </a>
-
-      <!-- NAVIGATION -->
-      <nav class="flex gap-6 text-lg">
-        <a href="/about" class="hover:underline">About</a>
-        <a href="/services" class="hover:underline">Services</a>
-        <a href="/careers" class="hover:underline">Careers</a>
-        <a href="/contact" class="hover:underline">Contact</a>
-        <a href="/scripts" class="hover:underline">Scripts</a>
+  <body class="bg-slate-50 text-slate-800">
+    <header class="border-b border-slate-200 bg-white/70 backdrop-blur supports-[backdrop-filter]:bg-white/50">
+      <nav class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4">
+        <a href="/" class="flex items-center gap-3">
+          <img src="/resilient_logo_header.png" alt="Resilient logo" class="h-8 w-8 rounded-sm object-contain" />
+          <span class="text-xl font-extrabold tracking-tight">Resilient Commercial Solutions LLC</span>
+        </a>
+        <ul class="flex items-center gap-6 text-sm font-medium">
+          <li><a class="hover:text-sky-700" href="/about">About</a></li>
+          <li><a class="hover:text-sky-700" href="/services">Services</a></li>
+          <li><a class="hover:text-sky-700" href="/careers">Careers</a></li>
+          <li><a class="hover:text-sky-700" href="/contact">Contact</a></li>
+          <li><a class="hover:text-sky-700" href="/responses">Responses</a></li>
+        </ul>
       </nav>
     </header>
 
-    <!-- MAIN -->
-    <main class="mx-auto max-w-6xl w-full flex-1 px-4 py-10">
+    <main class="mx-auto max-w-6xl px-4 py-10">
       <slot />
     </main>
 
-    <!-- FOOTER -->
-    <footer class="mx-auto max-w-6xl w-full px-4 py-10 text-sm text-slate-500">
-      © {new Date().getFullYear()} Resilient Commercial Solutions LLC
+    <footer class="mt-20 border-t border-slate-200 bg-white/60">
+      <div class="mx-auto max-w-6xl px-4 py-8 text-sm text-slate-500">
+        © {new Date().getFullYear()} Resilient Commercial Solutions LLC. All rights reserved.
+      </div>
     </footer>
   </body>
 </html>
