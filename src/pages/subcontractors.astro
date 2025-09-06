@@ -4,18 +4,19 @@ import { subcontractors } from "../data/subcontractors";
 ---
 
 <Base title="Subcontractors">
-  <h1 class="text-3xl font-bold mb-6">Subcontractor Network</h1>
-  <p class="mb-8 text-lg">
-    Resilient Commercial Solutions LLC partners with a reliable network of subcontractors across NC and FL.
-    Our crews are vetted, insured, and trained for consistent quality.
+  <h1 class="text-3xl md:text-4xl font-extrabold mb-6">Subcontractor Network</h1>
+
+  <p class="text-lg text-gray-700 mb-8 max-w-3xl">
+    Resilient Commercial Solutions LLC partners with vetted subcontractors across NC and FL.
+    All partners follow our safety-first SOPs and quality checks for consistent, compliant delivery.
   </p>
 
   <div class="grid gap-6 md:grid-cols-2">
     {subcontractors.map((item) => (
-      <div class="border rounded-lg p-6 shadow-sm bg-white">
+      <section class="rounded-lg border bg-white p-6 shadow-sm">
         <h2 class="text-xl font-semibold mb-2">{item.title}</h2>
         <p class="text-gray-700">{item.description}</p>
-      </div>
+      </section>
     ))}
   </div>
 </Base>
