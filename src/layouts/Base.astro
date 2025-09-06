@@ -1,67 +1,84 @@
- title = 'Resilient', description = '' } = Astro.props;
+---
+const { title = "Resilient" } = Astro.props;
 ---
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title ? `${title} · Resilient` : 'Resilient'}</title>
-    {description && <meta name="description" content={description} />}
-    <link rel="stylesheet" href="/global.css" />
+    <title>{title}</title>
   </head>
+  <body class="bg-slate-50 text-slate-800">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur">
+      <div class="mx-auto max-w-6xl px-4">
+        <div class="flex h-16 items-center justify-between">
+          <!-- Brand (one logo only) -->
+          <a href="/" class="flex items-center gap-3">
+            <img src="/logo.png" alt="Resilient logo" class="h-8 w-8" />
+            <span class="font-extrabold tracking-tight text-xl">Resilient</span>
+          </a>
 
-  <body class="bg-slate-50 text-slate-900">
-    <!-- Header / Nav  -->
-    <header class="border-b border-slate-200 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/60">
-      <div class="mx-auto max-w-5xl px-4 py-3 flex items-center justify-between gap-4">
-        <a href="/" class="flex items-center gap-3 shrink-0">
-          <img
-            src="/resilient_logo_header.png"
-            alt="Resilient logo"
-            class="h-8 w-8 rounded-md object-contain"
-            loading="eager"
-          />
-          <span class="font-black tracking-tight text-xl leading-none whitespace-nowrap">
-            Resilient
-          </span>
-        </a>
+          <!-- Desktop Nav -->
+          <nav class="hidden md:flex items-center gap-6">
+            <a href="/" class="hover:underline">Home</a>
+            <a href="/about" class="hover:underline">About</a>
+            <a href="/services" class="hover:underline">Services</a>
+            <a href="/careers" class="hover:underline">Careers</a>
+            <a href="/contact" class="hover:underline">Contact</a>
+            <a href="/responses" class="hover:underline">Responses</a>
+          </nav>
 
-        <nav class="flex items-center justify-between py-4">
-  <div class="flex items-center space-x-2">
-    <img src="/resilient_logo_header.png" alt="Resilient Logo" class="h-8 w-8" />
-    <span class="font-bold text-lg">Resilient</span>
-  </div>
-  <div class="space-x-6">
-    <a href="/" class="hover:underline">Home</a>
-    <a href="/about" class="hover:underline">About</a>
-    <a href="/services" class="hover:underline">Services</a>
-    <a href="/careers" class="hover:underline">Careers</a>
-    <a href="/contact" class="hover:underline">Contact</a>
-    <a href="/responses" class="hover:underline">Responses</a> <!-- add this -->
-  </div>
-</nav>
+          <!-- Mobile menu button -->
+          <button
+            id="menuBtn"
+            class="md:hidden inline-flex items-center justify-center rounded-md border border-slate-300 px-3 py-2 text-sm"
+            aria-expanded="false"
+            aria-controls="mobileNav"
+          >
+            Menu
+          </button>
+        </div>
 
-        <!-- Mobile menu button (kept simple; no drawer JS) -->
-        <a
-          href="/responses"
-          class="sm:hidden inline-flex items-center justify-center rounded-md border border-slate-200 px-3 py-1.5 text-sm font-medium"
-          aria-label="Open tools"
-          title="Tools"
+        <!-- Mobile Nav (hidden by default) -->
+        <nav
+          id="mobileNav"
+          class="md:hidden hidden pb-3 animate-[fadeIn_.15s_ease-out]"
         >
-          Tools
-        </a>
+          <ul class="flex flex-col gap-2 pt-2">
+            <li><a href="/" class="block rounded px-2 py-2 hover:bg-slate-100">Home</a></li>
+            <li><a href="/about" class="block rounded px-2 py-2 hover:bg-slate-100">About</a></li>
+            <li><a href="/services" class="block rounded px-2 py-2 hover:bg-slate-100">Services</a></li>
+            <li><a href="/careers" class="block rounded px-2 py-2 hover:bg-slate-100">Careers</a></li>
+            <li><a href="/contact" class="block rounded px-2 py-2 hover:bg-slate-100">Contact</a></li>
+            <li><a href="/responses" class="block rounded px-2 py-2 hover:bg-slate-100">Responses</a></li>
+          </ul>
+        </nav>
       </div>
     </header>
 
     <!-- Page content -->
-    <main class="mx-auto max-w-5xl px-4 py-10">
+    <main class="mx-auto max-w-6xl px-4 py-10">
       <slot />
     </main>
 
-    <footer class="border-t border-slate-200 bg-white/70">
-      <div class="mx-auto max-w-5xl px-4 py-6 text-sm text-slate-500">
-        © {new Date().getFullYear()} Resilient Commercial Solutions LLC
+    <!-- Footer -->
+    <footer class="border-t border-slate-200 py-10">
+      <div class="mx-auto max-w-6xl px-4 text-sm text-slate-500">
+        © 2025 Resilient Commercial Solutions LLC
       </div>
     </footer>
+
+    <!-- Tiny script to toggle the mobile drawer -->
+    <script>
+      const btn = document.getElementById('menuBtn');
+      const nav = document.getElementById('mobileNav');
+      if (btn && nav) {
+        btn.addEventListener('click', () => {
+          const open = nav.classList.toggle('hidden') === false;
+          btn.setAttribute('aria-expanded', String(open));
+        });
+      }
+    </script>
   </body>
 </html>
