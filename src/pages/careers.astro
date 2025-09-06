@@ -1,78 +1,27 @@
 ---
-import Base from "../layouts/Base.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<Base
+<BaseLayout
   title="Careers | Resilient Commercial Solutions LLC"
-  description="Join the Resilient team. We are actively hiring in Wake County (NC), Hillsborough, Pasco, and Pinellas (FL). Apply today."
-  canonical="/careers/"
-/>
-
-<section class="max-w-6xl mx-auto px-6 py-12">
-  <h1 class="text-4xl font-extrabold mb-6">Careers</h1>
-  <p>We are currently expanding our team. Apply now to grow with us.</p>
-</section>
----
-import Base from "../layouts/Base.astro";
----
-
-<Base title="Careers | Resilient Careers">
-  <section class="max-w-3xl mx-auto p-8">
-    <h1 class="text-3xl font-bold mb-4">Open Roles</h1>
-
-    <p class="mb-6">
-      Resilient Commercial Solutions LLC is actively hiring janitorial staff across
-      North Carolina and Florida. Join a licensed and insured facility services provider
-      committed to quality, compliance, and reliability.
+  description="We are hiring W-2 staff in Wake County (NC) and subcontractor crews in Hillsborough, Pasco, and Pinellas (FL). Apply today."
+>
+  <section class="max-w-6xl mx-auto px-6 py-12">
+    <h1 class="text-4xl font-extrabold mb-6">Careers</h1>
+    <p class="text-slate-700 max-w-3xl">
+      We’re actively hiring in Wake County (NC). Competitive pay, training, and compliance-first operations.
     </p>
 
-    <div class="space-y-8">
-      <!-- Wake County -->
-      <div class="border border-gray-200 rounded-lg p-6 shadow-sm">
-        <h2 class="text-2xl font-semibold mb-2">Janitorial Staff – USDA Facilities (Raleigh, NC)</h2>
-        <ul class="list-disc list-inside mb-4">
-          <li>Mon–Fri, 8:00am–3:30pm — no nights/weekends</li>
-          <li>Competitive pay: $15–$17/hr</li>
-          <li>Paid training + uniforms provided</li>
-          <li>Green products only</li>
-          <li>Career ladder: Janitor → Lead Tech → Supervisor</li>
-          <li>Federal clearance required (low-cost, reimbursed after 90 days)</li>
-          <li>$100 referral bonus after 60 days</li>
-        </ul>
-        <a
-          href="mailto:careers@resilient23.com"
-          class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
-        >
-          Apply Now
-        </a>
-      </div>
-
-      <!-- Florida Counties -->
-      <div class="border border-gray-200 rounded-lg p-6 shadow-sm">
-        <h2 class="text-2xl font-semibold mb-2">
-          Janitorial Staff – Hillsborough, Pasco & Pinellas Counties (FL)
-        </h2>
-        <ul class="list-disc list-inside mb-4">
-          <li>Multiple commercial sites across Tampa Bay region</li>
-          <li>Full-time & part-time schedules available</li>
-          <li>Starting at $15/hr with growth potential</li>
-          <li>Uniforms + paid orientation included</li>
-          <li>Green products only</li>
-          <li>$100 referral bonus after 60 days</li>
-        </ul>
-        <a
-          href="mailto:careers@resilient23.com"
-          class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
-        >
-          Apply Now
-        </a>
-      </div>
+    <div class="mt-8 rounded-xl border p-6 bg-white">
+      <h2 class="text-xl font-bold mb-3">Open Roles</h2>
+      <ul class="list-disc pl-5 space-y-1 text-slate-700">
+        <li>Day Porter (Full-time / Part-time)</li>
+        <li>Evening Janitorial (After-hours)</li>
+        <li>Floor Care Techs (periodic)</li>
+      </ul>
+      <a href="/contact/#quote" class="mt-6 inline-flex rounded-md bg-blue-600 px-5 py-3 font-semibold text-white hover:bg-blue-700">
+        Apply / Ask a Question
+      </a>
     </div>
-
-    <p class="mt-10 text-gray-600 text-sm">
-      © {new Date().getFullYear()} Resilient Commercial Solutions LLC — Registered in Florida
-      (Active LLC since Nov. 6, 2023, Document #L23000503930). Fully insured:
-      Hiscox Commercial General Liability, $2M per occurrence / $2M aggregate.
-    </p>
   </section>
-</Base>
+</BaseLayout>
