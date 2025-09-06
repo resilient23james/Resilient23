@@ -1,86 +1,69 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import PortfolioGrid from "../components/PortfolioGrid.astro";
 ---
 
 <BaseLayout
-  title="Services | Resilient Commercial Solutions LLC"
-  description="Daily upkeep, deep cleans, post-construction, and compliance-first SOPs. Clear deliverables, frequencies, photo standards, and QA."
+  title="Services | Resilient Commercial Solutions"
+  description="Facility care & upkeep, deep cleans, and post-construction turnovers. Clear deliverables, frequency options, photo standards, QA, and optional IVR check-in."
 >
   <section class="max-w-6xl mx-auto px-6 py-12">
-    <h1 class="text-4xl font-extrabold mb-8">Services</h1>
+    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-8">Services</h1>
 
-    <!-- Facility Care & Upkeep -->
-    <article class="mb-8 rounded-xl bg-white shadow p-6">
-      <h2 class="text-2xl font-extrabold mb-4">Facility Care &amp; Upkeep</h2>
-      <div class="grid md:grid-cols-2 gap-6">
-        <div>
-          <h3 class="font-semibold mb-2">Deliverables</h3>
-          <ul class="list-disc pl-5 space-y-1 text-slate-700">
+    <article class="bg-white rounded-2xl border border-slate-200 p-6 md:p-8 shadow-sm">
+      <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight mb-6">
+        Facility Care &amp; Upkeep
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-10">
+        <!-- Deliverables -->
+        <section>
+          <h3 class="text-xl font-semibold mb-3">Deliverables</h3>
+          <ul class="list-disc pl-5 space-y-2 text-slate-700">
             <li>Routine &amp; periodic cleaning (lobbies, offices, restrooms)</li>
             <li>High-touch sanitation (handles, rails, switches)</li>
             <li>Floors: dust/damp mop, auto-scrub; strip/wax/buff as scoped</li>
             <li>Trash &amp; recycling removal; restroom restock</li>
           </ul>
-        </div>
-        <div>
-          <h3 class="font-semibold mb-2">Frequencies</h3>
-          <ul class="list-disc pl-5 space-y-1 text-slate-700">
+        </section>
+
+        <!-- Frequencies -->
+        <section>
+          <h3 class="text-xl font-semibold mb-3">Frequencies</h3>
+          <ul class="list-disc pl-5 space-y-2 text-slate-700">
             <li>Daily, 3x/week, weekly, or custom</li>
             <li>Day porters and/or after-hours service</li>
             <li>Seasonal deep cleans</li>
           </ul>
-          <h3 class="font-semibold mt-4 mb-2">Photo Standards</h3>
-          <ul class="list-disc pl-5 space-y-1 text-slate-700">
-            <li>Before/after for periodic work and floor care</li>
-            <li>Detail shots of touch points/finishes</li>
+        </section>
+
+        <!-- Photo Standards -->
+        <section>
+          <h3 class="text-xl font-semibold mb-3">Photo Standards</h3>
+          <ul class="list-disc pl-5 space-y-2 text-slate-700">
+            <li>Before/after for periodic work and turnovers</li>
+            <li>Issue documentation for corrective follow-up</li>
           </ul>
-          <h3 class="font-semibold mt-4 mb-2">QA</h3>
-          <ul class="list-disc pl-5 space-y-1 text-slate-700">
-            <li>Checklists & documented SOPs</li>
-            <li>Routine inspections with scorecards</li>
-            <li>IVR/geo check-in (as required)</li>
+        </section>
+
+        <!-- QA & IVR -->
+        <section>
+          <h3 class="text-xl font-semibold mb-3">QA &amp; IVR</h3>
+          <ul class="list-disc pl-5 space-y-2 text-slate-700">
+            <li>QA inspections with scorecards</li>
+            <li>Optional IVR geo/time check-in for attendance verification</li>
           </ul>
-        </div>
+        </section>
+      </div>
+
+      <div class="mt-8">
+        <a href="/contact" class="inline-flex items-center rounded-lg px-5 py-3 font-semibold bg-blue-600 text-white hover:bg-blue-500">
+          Request a Quote
+        </a>
       </div>
     </article>
-
-    <!-- Project-Based Support -->
-    <article class="mb-8 rounded-xl bg-white shadow p-6">
-      <h2 class="text-2xl font-extrabold mb-4">Project-Based Support</h2>
-      <div class="grid md:grid-cols-2 gap-6">
-        <div>
-          <h3 class="font-semibold mb-2">Deliverables</h3>
-          <ul class="list-disc pl-5 space-y-1 text-slate-700">
-            <li>Post-construction cleans & turnovers</li>
-            <li>High dusting, glass, fixture polish</li>
-            <li>Short-term staffing surge support</li>
-            <li>Final polish & handover walk</li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="font-semibold mb-2">Frequencies</h3>
-          <ul class="list-disc pl-5 space-y-1 text-slate-700">
-            <li>One-time or phased (Rough → Final → Touch-up)</li>
-            <li>Night/Weekend windows available</li>
-          </ul>
-          <h3 class="font-semibold mt-4 mb-2">Photo Standards</h3>
-          <ul class="list-disc pl-5 space-y-1 text-slate-700">
-            <li>Room-wide and detail shots, labeled by area</li>
-            <li>Deficiency log with corrected photos</li>
-          </ul>
-          <h3 class="font-semibold mt-4 mb-2">QA</h3>
-          <ul class="list-disc pl-5 space-y-1 text-slate-700">
-            <li>Scope checklist signed by supervisor</li>
-            <li>Post-work QA & photo verification</li>
-          </ul>
-        </div>
-      </div>
-    </article>
-
-    <div class="mt-10">
-      <a href="/contact/#quote" class="inline-flex items-center rounded-md bg-blue-600 px-5 py-3 font-semibold text-white hover:bg-blue-700">
-        Request a Quote
-      </a>
-    </div>
   </section>
+
+  <!-- Portfolio proof-of-work -->
+  <PortfolioGrid />
 </BaseLayout>
