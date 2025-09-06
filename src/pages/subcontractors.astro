@@ -1,0 +1,152 @@
+---
+import Base from "../layouts/Base.astro";
+const title = "Subcontractors — Resilient Commercial Solutions LLC";
+---
+
+<Base title={title} description="Partner with Resilient: requirements, documents, and application form.">
+  <section class="mx-auto max-w-5xl px-4 sm:px-6 py-10">
+    <h1 class="text-4xl font-extrabold tracking-tight mb-6">Subcontractor Partners</h1>
+    <p class="text-slate-700 mb-8 max-w-3xl">
+      Resilient Commercial Solutions LLC partners with professional, insured subcontractors for janitorial and facility
+      services. We focus on safety, compliance, and consistent delivery for public and private sector clients.
+    </p>
+
+    <!-- Requirements -->
+    <div class="grid lg:grid-cols-2 gap-8 mb-12">
+      <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+        <h2 class="text-2xl font-semibold mb-3">Minimum Requirements</h2>
+        <ul class="list-disc list-inside space-y-2 text-slate-800">
+          <li>Active business entity (LLC, Corp, or Sole Prop with EIN)</li>
+          <li>General Liability insurance (target: <strong>$2M / $2M</strong>)</li>
+          <li>Workers’ Compensation or valid exemption (as applicable)</li>
+          <li>Use of <strong>green products</strong> per site policy</li>
+          <li>Uniformed staff; IVR/app clock-in; before/after photos</li>
+          <li>Invoices due by the <strong>5th</strong> each month; Net <strong>30</strong> terms; pay on the <strong>15th</strong></li>
+        </ul>
+      </div>
+
+      <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+        <h2 class="text-2xl font-semibold mb-3">What We Provide</h2>
+        <ul class="list-disc list-inside space-y-2 text-slate-800">
+          <li>Clear scope &amp; startup checklist with QA photo standards</li>
+          <li>Site consumables provided where noted in scope</li>
+          <li>Supervisor support, escalation path, and rapid feedback</li>
+          <li>Consistent schedule with documented deliverables</li>
+          <li>Fair, on-time payments (see terms above)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Helpful Documents (optional: link your actual PDFs in /public) -->
+    <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm mb-12">
+      <h2 class="text-2xl font-semibold mb-3">Documents</h2>
+      <ul class="space-y-2 text-sky-700">
+        <li><a class="underline" href="/Resilient_Subcontractor_Agreement.pdf" target="_blank">Subcontractor Agreement (PDF)</a></li>
+        <li><a class="underline" href="/Resilient_Partner_Payment_Program.pdf" target="_blank">Partner Payment Program (PDF)</a></li>
+        <li><a class="underline" href="/W9_Blank.pdf" target="_blank">Blank W-9</a></li>
+        <li><a class="underline" href="/Direct_Deposit_Form.pdf" target="_blank">Direct Deposit Form</a></li>
+      </ul>
+      <p class="text-sm text-slate-500 mt-3">Place these files in <code>/public</code> with the same names, or update the links above.</p>
+    </div>
+
+    <!-- Netlify Application Form -->
+    <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+      <h2 class="text-2xl font-semibold mb-4">Subcontractor Application</h2>
+      <form
+        name="subcontractor-apply"
+        method="POST"
+        action="/thanks-sub"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        enctype="multipart/form-data"
+        class="grid gap-4 md:grid-cols-2"
+      >
+        <input type="hidden" name="form-name" value="subcontractor-apply" />
+        <p class="hidden">
+          <label>Don’t fill this out: <input name="bot-field" /></label>
+        </p>
+
+        <!-- Company -->
+        <div class="md:col-span-2">
+          <label class="block text-sm font-medium mb-1">Company Name</label>
+          <input name="company" required class="w-full rounded border border-slate-300 px-3 py-2" />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1">Contact Name</label>
+          <input name="contact" required class="w-full rounded border border-slate-300 px-3 py-2" />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1">Email</label>
+          <input type="email" name="email" required class="w-full rounded border border-slate-300 px-3 py-2" />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1">Phone</label>
+          <input name="phone" required class="w-full rounded border border-slate-300 px-3 py-2" />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1">Service Areas (Counties)</label>
+          <input name="service_areas" placeholder="e.g., Wake NC; Hillsborough/Pasco/Pinellas FL" class="w-full rounded border border-slate-300 px-3 py-2" />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1">Services Offered</label>
+          <input name="services" placeholder="Janitorial, Floor Care, Day Porter, etc." class="w-full rounded border border-slate-300 px-3 py-2" />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1">EIN</label>
+          <input name="ein" class="w-full rounded border border-slate-300 px-3 py-2" />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1">Business Type</label>
+          <select name="entity" class="w-full rounded border border-slate-300 px-3 py-2">
+            <option>LLC</option>
+            <option>Corporation</option>
+            <option>Sole Proprietor</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1">General Liability Coverage</label>
+          <input name="gl_coverage" placeholder="$2M / $2M preferred" class="w-full rounded border border-slate-300 px-3 py-2" />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1">Workers’ Comp (Y/N)</label>
+          <select name="wc" class="w-full rounded border border-slate-300 px-3 py-2">
+            <option>Yes</option>
+            <option>No (exempt or not applicable)</option>
+          </select>
+        </div>
+
+        <div class="md:col-span-2">
+          <label class="block text-sm font-medium mb-1">Upload COI / W-9 (PDF or image)</label>
+          <input type="file" name="documents" accept=".pdf,.png,.jpg,.jpeg" class="w-full rounded border border-slate-300 px-3 py-2" />
+          <p class="text-xs text-slate-500 mt-1">Netlify will attach files to the form submission record.</p>
+        </div>
+
+        <div class="md:col-span-2">
+          <label class="block text-sm font-medium mb-1">Notes</label>
+          <textarea name="notes" rows="4" class="w-full rounded border border-slate-300 px-3 py-2"></textarea>
+        </div>
+
+        <div class="md:col-span-2">
+          <button class="rounded-md bg-sky-600 px-5 py-3 text-white font-semibold hover:bg-sky-700" type="submit">
+            Submit Application
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <p class="mt-10 text-sm text-slate-500">
+      © {new Date().getFullYear()} Resilient Commercial Solutions LLC — Florida LLC (Active since Nov. 6, 2023, Doc #L23000503930).
+      Insured: Hiscox CGL $2M per occurrence / $2M aggregate (Effective Aug 25, 2025 – Aug 25, 2026).
+    </p>
+  </section>
+</Base>
