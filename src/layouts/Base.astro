@@ -1,25 +1,103 @@
 ---
-const { title = "Resilient Commercial Solutions LLC" } = Astro.props;
+// src/layouts/Base.astro
+const { title = "Resilient Careers" } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="en" class="h-full">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
-    <link rel="icon" type="image/png" href="/resilient_logo_header.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="stylesheet" href="/global.css" />
   </head>
-  <body class="bg-slate-50 text-slate-800">
-    <layouts/Base.astro
 
-    <main class="mx-auto max-w-6xl px-4 py-10">
+  <body class="min-h-full bg-slate-50 text-slate-800">
+    <!-- Header -->
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-slate-200">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6">
+        <div class="flex h-16 items-center justify-between gap-3">
+          <!-- Brand -->
+          <a href="/" class="flex items-center gap-3 shrink-0">
+            <img
+              src="/resilient_logo_header.png"
+              alt="Resilient Commercial Solutions LLC"
+              class="h-8 w-8 rounded bg-black object-contain"
+              loading="eager"
+              decoding="async"
+            />
+            <!-- Short name on mobile, full on md+ -->
+            <div class="font-extrabold tracking-tight leading-none">
+              <span class="text-xl md:hidden">Resilient</span>
+              <span class="hidden md:inline text-2xl">Resilient Commercial<br class="hidden lg:block" /> Solutions LLC</span>
+            </div>
+          </a>
+
+          <!-- Desktop nav -->
+          <nav class="hidden md:block">
+            <ul class="flex items-center gap-8 text-[17px] font-medium">
+              <li><a class="hover:text-sky-700" href="/about">About</a></li>
+              <li><a class="hover:text-sky-700" href="/services">Services</a></li>
+              <li><a class="hover:text-sky-700" href="/careers">Careers</a></li>
+              <li><a class="hover:text-sky-700" href="/responses">Responses</a></li>
+              <li>
+                <a
+                  class="inline-block rounded-md bg-sky-600 px-4 py-2 text-white hover:bg-sky-700"
+                  href="/contact"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </nav>
+
+          <!-- Mobile menu button -->
+          <button
+            id="menuBtn"
+            class="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-md border border-slate-300"
+            aria-controls="mobileMenu"
+            aria-expanded="false"
+          >
+            <span class="sr-only">Open menu</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile menu -->
+      <div id="mobileMenu" class="md:hidden hidden border-t border-slate-200">
+        <nav class="mx-auto max-w-6xl px-4 sm:px-6 py-3">
+          <ul class="grid gap-3 text-lg">
+            <li><a class="block py-2 hover:text-sky-700" href="/about">About</a></li>
+            <li><a class="block py-2 hover:text-sky-700" href="/services">Services</a></li>
+            <li><a class="block py-2 hover:text-sky-700" href="/careers">Careers</a></li>
+            <li><a class="block py-2 hover:text-sky-700" href="/responses">Responses</a></li>
+            <li><a class="block py-2 hover:text-white rounded-md bg-sky-600 px-4 text-center" href="/contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+      <script is:inline>
+        const btn = document.getElementById('menuBtn');
+        const menu = document.getElementById('mobileMenu');
+        btn?.addEventListener('click', () => {
+          const open = menu.classList.toggle('hidden') === false;
+          btn.setAttribute('aria-expanded', String(open));
+        });
+      </script>
+    </header>
+
+    <!-- Main -->
+    <main class="mx-auto max-w-6xl px-4 sm:px-6 py-10">
       <slot />
     </main>
 
-    <footer class="mt-20 border-t border-slate-200 bg-white/60">
-      <div class="mx-auto max-w-6xl px-4 py-8 text-sm text-slate-500">
-        © {new Date().getFullYear()} Resilient Commercial Solutions LLC. All rights reserved.
+    <!-- Footer -->
+    <footer class="border-t border-slate-200 py-10">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 text-sm text-slate-500 flex flex-wrap items-center justify-between gap-3">
+        <span>© {new Date().getFullYear()} Resilient Commercial Solutions LLC</span>
+        <span>Licensed & Insured • Florida LLC • Hiscox CGL $2M / $2M</span>
       </div>
     </footer>
   </body>
