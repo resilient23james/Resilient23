@@ -1,78 +1,12 @@
 ---
 import Base from "../layouts/Base.astro";
-
-const pageTitle = "Tools";
-const pageDescription =
-  "Handy utilities and links for Resilient Commercial Solutions LLC.";
-
-// A small default snippet you can copy; edit or clear as you like.
-// Keeping this inline avoids any imports that could break the build.
-const defaultSnippet = `Resilient Commercial Solutions LLC — Florida LLC (active). Fully insured (Hiscox CGL $2M/$2M). Dependable, compliant, high-quality facility services.`;
 ---
-<Base title={pageTitle} description={pageDescription}>
-  <main class="max-w-5xl mx-auto px-4 py-10 space-y-10">
-    <h1 class="text-4xl font-extrabold tracking-tight">Tools</h1>
 
-    <!-- Quick links (no external imports) -->
-    <section class="space-y-4">
-      <h2 class="text-2xl font-bold">Quick Links</h2>
-      <div class="flex flex-wrap gap-3">
-        <a href="/contact/" class="inline-flex items-center rounded-lg px-4 py-2 bg-blue-600 text-white font-medium hover:bg-blue-700 focus:outline-none focus:ring">
-          Get a Quote
-        </a>
-        <a href="/subcontractors/" class="inline-flex items-center rounded-lg px-4 py-2 bg-gray-900 text-white font-medium hover:bg-gray-800 focus:outline-none focus:ring">
-          Subcontractors
-        </a>
-        <a href="/careers/" class="inline-flex items-center rounded-lg px-4 py-2 bg-slate-200 text-slate-900 font-medium hover:bg-slate-300 focus:outline-none focus:ring">
-          Careers
-        </a>
-        <a href="/services/" class="inline-flex items-center rounded-lg px-4 py-2 bg-slate-200 text-slate-900 font-medium hover:bg-slate-300 focus:outline-none focus:ring">
-          Services
-        </a>
-        <a href="/about/" class="inline-flex items-center rounded-lg px-4 py-2 bg-slate-200 text-slate-900 font-medium hover:bg-slate-300 focus:outline-none focus:ring">
-          About
-        </a>
-      </div>
-    </section>
-
-    <!-- Simple clipboard helper (safe, self-contained) -->
-    <section class="space-y-4">
-      <h2 class="text-2xl font-bold">Clipboard Helper</h2>
-      <p class="text-slate-600">
-        Paste or edit any text below, then press <em>Copy</em>.
-      </p>
-      <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-        <label for="clip1" class="sr-only">Clipboard text</label>
-        <textarea
-          id="clip1"
-          class="w-full h-40 rounded-md border border-slate-300 p-3 font-mono text-[15px] leading-6"
-        >{defaultSnippet}</textarea>
-        <div class="mt-3">
-          <button
-            type="button"
-            class="inline-flex items-center rounded-lg px-4 py-2 bg-blue-600 text-white font-medium hover:bg-blue-700 focus:outline-none focus:ring"
-            data-for="clip1"
-            onClick={() => copyFrom("clip1")}
-          >
-            Copy
-          </button>
-        </div>
-      </div>
-    </section>
+<Base title="Tools" description="Shortcuts and utilities for the site.">
+  <main class="max-w-3xl mx-auto px-6 py-12">
+    <h1 class="text-4xl font-bold tracking-tight">Tools</h1>
+    <p class="mt-4 text-slate-600">
+      Placeholder page used to verify builds. You can add content here later.
+    </p>
   </main>
 </Base>
-
-<script is:inline>
-  function copyFrom(id) {
-    const el = document.getElementById(id);
-    if (!el) return;
-    const btn = document.querySelector(`[data-for="${id}"]`);
-    navigator.clipboard.writeText(el.value || "").then(() => {
-      if (btn) {
-        const old = btn.textContent;
-        btn.textContent = "Copied!";
-        setTimeout(() => (btn.textContent = old), 1200);
-      }
-    });
-  }
-</script>
