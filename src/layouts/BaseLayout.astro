@@ -1,52 +1,173 @@
 ---
-const { title = "Resilient Commercial Solutions LLC", description = "Resilient Commercial Solutions LLC – Licensed & Insured Facility Services Provider delivering dependable cleaning, compliance, and quality solutions across Florida, North Carolina, and beyond." } = Astro.props;
+/** BaseLayout.astro
+ * Drop this file into: src/layouts/BaseLayout.astro
+ * Usage on pages:
+ *   ---
+ *   import BaseLayout from "../layouts/BaseLayout.astro";
+ *   const title = "Page Title";
+ *   const description = "Short, keyword-rich description for this page.";
+ *   ---
+ *   <BaseLayout {title} {description}>
+ *     <!-- your page content -->
+ *   </BaseLayout>
+ */
+
+export interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  canonical?: string;
+}
+
+const {
+  title = "Resilient Commercial Solutions LLC — Facility Services You Can Trust",
+  description = "Dependable, compliant, high-quality facility cleaning and care across NC & FL. Licensed & insured. Government-ready SOPs. Get a quote today.",
+  ogImage = "/favicon-180x180.png", // you can replace with a hero image later
+  canonical = "https://resilient23.netlify.app/",
+} = Astro.props;
+
+// Schema.org Organization JSON-LD
+const orgJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Resilient Commercial Solutions LLC",
+  url: "https://resilient23.netlify.app/",
+  logo: "/favicon-180x180.png",
+  sameAs: [],
+};
 ---
 
-<html lang="en">
+<html lang="en" class="h-full bg-white">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- ✅ Dynamic SEO -->
     <title>{title}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
 
-    <!-- ✅ Favicon & Icons -->
+    <!-- ✅ Favicons -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png" />
+    <link rel="manifest" href="/site.webmanifest" />
 
-    <!-- ✅ Open Graph / Social Sharing -->
+    <!-- ✅ Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://resilient23.netlify.app/" />
-    <meta property="og:image" content="/favicon-512.png" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
 
     <!-- ✅ Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="/favicon-512.png" />
+    <meta name="twitter:image" content={ogImage} />
 
-    <!-- Fonts & Styles -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <!-- ✅ JSON-LD -->
+    <script type="application/ld+json" is:inline>
+      {JSON.stringify(orgJsonLd)}
+    </script>
+
+    <!-- Fonts (optional) -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   </head>
 
-  <body class="font-inter bg-white text-gray-900">
-    <header>
-      <!-- Add your Navbar here if global -->
+  <body class="min-h-full text-slate-900 antialiased">
+    <!-- Skip link -->
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 bg-white text-slate-900 px-3 py-2 rounded shadow"
+      >Skip to content</a
+    >
+
+    <!-- HEADER -->
+    <header class="border-b bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6">
+        <div class="flex h-16 items-center justify-between">
+          <!-- Brand -->
+          <a href="/" class="flex items-center gap-3">
+            <img
+              src="/resilient_logo_header.png"
+              alt="Resilient logo"
+              class="h-8 w-8"
+              loading="lazy"
+              decoding="async"
+            />
+            <span class="font-extrabold text-xl tracking-tight">Resilient</span>
+          </a>
+
+          <!-- Desktop Nav -->
+          <nav class="hidden md:flex items-center gap-6">
+            <a href="/" class="hover:text-slate-600">Home</a>
+            <a href="/about/" class="hover:text-slate-600">About</a>
+            <a href="/services/" class="hover:text-slate-600">Services</a>
+            <a href="/careers/" class="hover:text-slate-600">Careers</a>
+            <a href="/subcontractors/" class="hover:text-slate-600">Subcontractors</a>
+            <a href="/contact/" class="hover:text-slate-600">Contact</a>
+            <a
+              href="/contact/#quote"
+              class="ml-2 inline-flex items-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600"
+              >Get a Quote</a
+            >
+          </nav>
+
+          <!-- Mobile menu button -->
+          <button
+            id="menuBtn"
+            class="md:hidden inline-flex items-center justify-center rounded-md border px-3 py-2 text-sm"
+            aria-expanded="false"
+            aria-controls="mobileNav"
+          >
+            Menu
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="mobileNav" class="md:hidden hidden border-t">
+        <nav class="mx-auto max-w-6xl px-4 sm:px-6 py-3 grid gap-2">
+          <a href="/" class="py-1">Home</a>
+          <a href="/about/" class="py-1">About</a>
+          <a href="/services/" class="py-1">Services</a>
+          <a href="/careers/" class="py-1">Careers</a>
+          <a href="/subcontractors/" class="py-1">Subcontractors</a>
+          <a href="/contact/" class="py-1">Contact</a>
+          <a
+            href="/contact/#quote"
+            class="mt-2 inline-flex items-center justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow hover:bg-blue-700"
+            >Get a Quote</a
+          >
+        </nav>
+      </div>
     </header>
 
-    <main>
-      <slot /> <!-- ✅ Page content renders here -->
+    <!-- MAIN -->
+    <main id="main" class="mx-auto max-w-6xl px-4 sm:px-6 py-10">
+      <slot />
     </main>
 
-    <footer class="text-center text-sm text-gray-500 py-4">
-      © {new Date().getFullYear()} Resilient Commercial Solutions LLC. All rights reserved.
+    <!-- FOOTER -->
+    <footer class="border-t bg-slate-50">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 py-8 text-sm text-slate-600">
+        <p>© {new Date().getFullYear()} Resilient Commercial Solutions LLC. All rights reserved.</p>
+      </div>
     </footer>
+
+    <!-- Tiny inline script for mobile menu (no frameworks) -->
+    <script is:inline>
+      const btn = document.getElementById('menuBtn');
+      const nav = document.getElementById('mobileNav');
+      if (btn && nav) {
+        btn.addEventListener('click', () => {
+          const expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          nav.classList.toggle('hidden');
+        });
+      }
+    </script>
   </body>
 </html>
