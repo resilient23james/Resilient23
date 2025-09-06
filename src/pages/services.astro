@@ -1,49 +1,110 @@
 ---
 import Base from "../layouts/Base.astro";
 ---
+<Base
+  title="Services | Resilient Commercial Solutions LLC"
+  description="Facility care & upkeep, project-based support, and compliance-first operations. Clear deliverables, frequencies, photo standards, and QA."
+  canonical="/services/"
+/>
 
-<Base title="Services — Resilient Commercial Solutions LLC">
-  <h1 class="mb-6 text-3xl font-extrabold tracking-tight">Services</h1>
+<section class="max-w-6xl mx-auto px-6 py-12">
+  <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-8">Services</h1>
 
-  <div class="grid gap-6 md:grid-cols-2">
-    <section class="rounded-lg border border-slate-200 bg-white p-5">
-      <h2 class="mb-2 text-xl font-bold">Facility Care & Upkeep</h2>
-      <ul class="list-disc space-y-1 pl-5 text-slate-700">
-        <li>Routine & periodic cleaning</li>
-        <li>High-touch sanitation</li>
-        <li>Floor care (strip/wax/buff)</li>
-      </ul>
-    </section>
+  <!-- 1. Facility Care & Upkeep -->
+  <article class="mb-8 rounded-xl bg-white shadow p-6">
+    <h2 class="text-2xl font-extrabold mb-4">Facility Care &amp; Upkeep</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div>
+        <h3 class="font-semibold mb-2">Deliverables</h3>
+        <ul class="list-disc pl-5 space-y-1">
+          <li>Routine &amp; periodic cleaning (lobbies, offices, restrooms)</li>
+          <li>High-touch sanitation (handles, switches, rails)</li>
+          <li>Floors: dust mop, damp mop, auto-scrub; strip/wax/buff as scoped</li>
+          <li>Trash &amp; recycling removal</li>
+          <li>Restroom restock &amp; fixture shine</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-semibold mb-2">Frequency Options</h3>
+        <ul class="list-disc pl-5 space-y-1">
+          <li>Daily, 3x/week, weekly, or custom schedules</li>
+          <li>Day porter and/or after-hours service</li>
+          <li>Seasonal deep cleans</li>
+        </ul>
+        <h3 class="font-semibold mt-4 mb-2">Photo Standards</h3>
+        <ul class="list-disc pl-5 space-y-1">
+          <li>Before/after for periodic work and floor care</li>
+          <li>Close-ups for touch points &amp; finishes</li>
+        </ul>
+        <h3 class="font-semibold mt-4 mb-2">QA</h3>
+        <ul class="list-disc pl-5 space-y-1">
+          <li>Documented SOPs and checklists</li>
+          <li>Routine inspections with scorecards</li>
+          <li>IVR/geo check-in for on-site verification (as required)</li>
+        </ul>
+      </div>
+    </div>
+  </article>
 
-    <section class="rounded-lg border border-slate-200 bg-white p-5">
-      <h2 class="mb-2 text-xl font-bold">Project-Based Support</h2>
-      <ul class="list-disc space-y-1 pl-5 text-slate-700">
-        <li>Turnovers, deep cleans, and move-ins</li>
-        <li>Short-term staffing surge support</li>
-        <li>Post-work QA & photo verification</li>
-      </ul>
-    </section>
+  <!-- 2. Project-Based Support -->
+  <article class="mb-8 rounded-xl bg-white shadow p-6">
+    <h2 class="text-2xl font-extrabold mb-4">Project-Based Support</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div>
+        <h3 class="font-semibold mb-2">Deliverables</h3>
+        <ul class="list-disc pl-5 space-y-1">
+          <li>Turnovers, post-construction cleans, move-ins</li>
+          <li>High dusting, detail wipe-downs, glass/polish, fixtures</li>
+          <li>Short-term staffing surge support</li>
+          <li>Final polish &amp; handover walk</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-semibold mb-2">Frequency Options</h3>
+        <ul class="list-disc pl-5 space-y-1">
+          <li>One-time or phased (Rough → Final → Touch-up)</li>
+          <li>Night/Weekend windows available</li>
+        </ul>
+        <h3 class="font-semibold mt-4 mb-2">Photo Standards</h3>
+        <ul class="list-disc pl-5 space-y-1">
+          <li>Room-wide and detail shots, labeled by area</li>
+          <li>Deficiency log with corrected photos</li>
+        </ul>
+        <h3 class="font-semibold mt-4 mb-2">QA</h3>
+        <ul class="list-disc pl-5 space-y-1">
+          <li>Scope checklist signed by supervisor</li>
+          <li>Post-work QA &amp; photo verification</li>
+        </ul>
+      </div>
+    </div>
+  </article>
 
-    <section class="rounded-lg border border-slate-200 bg-white p-5">
-      <h2 class="mb-2 text-xl font-bold">Compliance & Safety</h2>
-      <ul class="list-disc space-y-1 pl-5 text-slate-700">
-        <li>Documented SOPs and checklists</li>
-        <li>Incident-free, safety-first operations</li>
-        <li>Insured: CGL $2M / $2M</li>
-      </ul>
-    </section>
+  <!-- 3. Compliance & Safety -->
+  <article class="mb-8 rounded-xl bg-white shadow p-6">
+    <h2 class="text-2xl font-extrabold mb-4">Compliance &amp; Safety</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div>
+        <h3 class="font-semibold mb-2">Deliverables</h3>
+        <ul class="list-disc pl-5 space-y-1">
+          <li>Documented SOPs, MSDS/labels, and hazard communication</li>
+          <li>Crew training (chemicals, equipment, PPE)</li>
+          <li>Incident-free, safety-first operations</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-semibold mb-2">Verification</h3>
+        <ul class="list-disc pl-5 space-y-1">
+          <li>Insurance: Hiscox CGL $2M / $2M (current)</li>
+          <li>Florida LLC · Doc #L23000503930</li>
+          <li>Optional IVR/geo check-in &amp; inspection reports</li>
+        </ul>
+      </div>
+    </div>
+  </article>
 
-    <section class="rounded-lg border border-slate-200 bg-white p-5">
-      <h2 class="mb-2 text-xl font-bold">Industries We Serve</h2>
-      <ul class="list-disc space-y-1 pl-5 text-slate-700">
-        <li>Commercial offices & sites</li>
-        <li>Light industrial & logistics</li>
-        <li>Public sector facilities</li>
-      </ul>
-    </section>
+  <div class="mt-10">
+    <a href="/contact/" class="inline-flex items-center rounded-md bg-blue-600 px-5 py-3 font-semibold text-white hover:bg-blue-700">
+      Request a Quote
+    </a>
   </div>
-
-  <div class="mt-8">
-    <a href="/contact" class="rounded-md bg-sky-600 px-5 py-3 font-semibold text-white hover:bg-sky-700">Request a quote</a>
-  </div>
-</Base>
+</section>
