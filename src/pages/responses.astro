@@ -1,0 +1,40 @@
+---
+import Base from "../layouts/Base.astro";
+import { responses } from "../data/responses";
+
+const groups = [
+  { key: "master", title: "Master Response" },
+  { key: "closer", title: "Closer Response" },
+  { key: "aplus", title: "A+ Response" },
+  { key: "followUp", title: "Follow-Up Response" },
+];
+---
+
+<Base title="Response Library | Resilient">
+  <section class="max-w-5xl mx-auto px-6 py-10">
+    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-8">
+      Response Library
+    </h1>
+
+    {groups.map((g) => (
+      <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm mb-8" id={g.key}>
+        <h2 class="text-2xl font-semibold mb-3">{g.title}</h2>
+        <div class="grid md:grid-cols-[1fr,auto] gap-3 items-start">
+          <textarea
+            class="w-full h-40 p-3 border border-gray-300 rounded-lg font-mono text-sm"
+            readonly
+          >{responses[g.key]}</textarea>
+
+          <button
+            class="h-10 px-4 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700"
+            onclick={`navigator.clipboard.writeText(${JSON.stringify(
+              responses[g.key]
+            )}); this.textContent='Copied!'; setTimeout(()=>this.textContent='Copy',1200);`}
+          >
+            Copy
+          </button>
+        </div>
+      </div>
+    ))}
+  </section>
+</Base>
