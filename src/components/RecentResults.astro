@@ -1,0 +1,66 @@
+---
+const items = [
+  {
+    title: "Lobby - post-construction clean",
+    src: "/portfolio/PCLobby.jpg.jpg",
+    alt: "Lobby after post-construction clean with rug and seating area",
+  },
+  {
+    title: "Exam room - detail clean",
+    src: "/portfolio/PCOffice2.jpg",
+    alt: "Exam room with treatment table and clean floors",
+  },
+  {
+    title: "Hallway - finish to spec",
+    src: "/portfolio/PCFloor2.jpg",
+    alt: "Long hallway with finished tile floors",
+  },
+  {
+    title: "Restroom - turnover clean",
+    src: "/portfolio/PCRR1.jpg",
+    alt: "Restroom cleaned and ready for use",
+  },
+  {
+    title: "Fixtures - dust & polish",
+    src: "/portfolio/PCFountain.jpg.jpg",
+    alt: "Polished fixtures and drinking fountain detail",
+  },
+  {
+    title: "Breakroom - periodic deep clean",
+    src: "/portfolio/PCPlant.jpg",
+    alt: "Breakroom surfaces and floors after deep clean",
+  },
+];
+---
+
+<section class="py-16">
+  <div class="mx-auto max-w-6xl px-6">
+    <h2 class="text-4xl font-extrabold tracking-tight text-slate-900">Recent Results</h2>
+    <p class="mt-4 max-w-3xl text-lg text-slate-600">
+      A few snapshots from post-construction and periodic work. More references on request.
+    </p>
+
+    <div class="mt-8 grid gap-6 sm:grid-cols-2">
+      {items.map((item) => (
+        <figure class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+          <figcaption class="px-5 pt-4 text-lg font-semibold text-slate-900">
+            {item.title}
+          </figcaption>
+          <div class="aspect-[4/3] w-full">
+            <img
+              src={item.src}
+              alt={item.alt}
+              loading="lazy"
+              class="h-full w-full object-cover"
+              width="1600"
+              height="1200"
+            />
+          </div>
+          <figcaption class="px-5 py-4 text-base text-slate-700">
+            {item.title}
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>
