@@ -2,54 +2,61 @@
 import Base from "../layouts/Base.astro";
 ---
 
-<Base title="Contact — Resilient Commercial Solutions LLC">
-  <h1 class="mb-6 text-3xl font-extrabold tracking-tight">Contact Us</h1>
-  <p class="mb-8 max-w-2xl text-slate-700">
-    Fill out the form below and someone from <strong>Resilient Commercial Solutions LLC</strong> will follow up with you.
-  </p>
-
-  <form
-    name="contact"
-    method="POST"
-    data-netlify="true"
-    netlify-honeypot="bot-field"
-    action="/thanks"
-    class="max-w-xl space-y-4 rounded-lg border border-slate-200 bg-white p-6"
-  >
-    <input type="hidden" name="form-name" value="contact" />
-    <p class="hidden">
-      <label>Don’t fill this out: <input name="bot-field" /></label>
+<Base>
+  <section class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12" id="quote">
+    <h1 class="text-3xl font-bold mb-6">Contact Us</h1>
+    <p class="mb-6 text-slate-700">
+      Fill out the form below and someone from <strong>Resilient Commercial Solutions LLC</strong>
+      will follow up with you.
     </p>
 
-    <div>
-      <label class="mb-1 block text-sm font-medium">Name</label>
-      <input
-        class="w-full rounded-md border border-slate-300 px-3 py-2 outline-none focus:border-sky-500"
-        type="text" name="name" required
-      />
-    </div>
-
-    <div>
-      <label class="mb-1 block text-sm font-medium">Email</label>
-      <input
-        class="w-full rounded-md border border-slate-300 px-3 py-2 outline-none focus:border-sky-500"
-        type="email" name="email" required
-      />
-    </div>
-
-    <div>
-      <label class="mb-1 block text-sm font-medium">Message</label>
-      <textarea
-        class="h-40 w-full rounded-md border border-slate-300 px-3 py-2 outline-none focus:border-sky-500"
-        name="message" required
-      ></textarea>
-    </div>
-
-    <button
-      type="submit"
-      class="rounded-md bg-sky-600 px-5 py-3 font-semibold text-white hover:bg-sky-700"
+    <form
+      name="contact"
+      method="POST"
+      data-netlify="true"
+      action="/thanks"
+      class="space-y-4"
     >
-      Send
-    </button>
-  </form>
+      <input type="hidden" name="form-name" value="contact" />
+
+      <div>
+        <label for="name" class="block text-sm font-medium text-slate-700">Name</label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          required
+          class="mt-1 block w-full rounded-md border border-slate-300 px-3 py-2"
+        />
+      </div>
+
+      <div>
+        <label for="email" class="block text-sm font-medium text-slate-700">Email</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          required
+          class="mt-1 block w-full rounded-md border border-slate-300 px-3 py-2"
+        />
+      </div>
+
+      <div>
+        <label for="message" class="block text-sm font-medium text-slate-700">Message</label>
+        <textarea
+          name="message"
+          id="message"
+          rows="5"
+          class="mt-1 block w-full rounded-md border border-slate-300 px-3 py-2"
+        ></textarea>
+      </div>
+
+      <button
+        type="submit"
+        class="rounded-md bg-blue-600 px-4 py-2 text-white font-semibold hover:bg-blue-700"
+      >
+        Send
+      </button>
+    </form>
+  </section>
 </Base>
