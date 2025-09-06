@@ -1,0 +1,20 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Portfolio | Resilient Commercial Solutions LLC"
+  description="A look at our post-construction cleans and facility care results."
+>
+  <section class="max-w-6xl mx-auto px-6 py-12">
+    <h1 class="text-4xl font-extrabold mb-6">Portfolio</h1>
+    <p class="text-slate-700 mb-8">Real results from recent projects.</p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <!-- Replace with your actual image paths in /public/images/portfolio/... -->
+      <img src="/images/portfolio/lobby.jpg" alt="Lobby — Post-Construction" class="w-full h-56 object-cover rounded-lg border" />
+      <img src="/images/portfolio/hallway.jpg" alt="Hallway — Floor Detailing" class="w-full h-56 object-cover rounded-lg border" />
+      <img src="/images/portfolio/breakroom.jpg" alt="Breakroom — Deep Clean" class="w-full h-56 object-cover rounded-lg border" />
+    </div>
+  </section>
+</BaseLayout>
