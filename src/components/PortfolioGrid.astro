@@ -1,0 +1,39 @@
+---
+/**
+ * Simple, fast portfolio grid.
+ * Drop image files into /public/images/portfolio/.
+ * Update the "photos" array with the filenames you add.
+ */
+const photos = [
+  // replace these with your real filenames in /public/images/portfolio/
+  { src: "/images/portfolio/lobby-1.jpg", alt: "Lobby - post-construction clean" },
+  { src: "/images/portfolio/exam-room-1.jpg", alt: "Exam room - detail clean" },
+  { src: "/images/portfolio/hallway-1.jpg", alt: "Hallway - finish to spec" },
+  { src: "/images/portfolio/restroom-1.jpg", alt: "Restroom - turnover clean" },
+  { src: "/images/portfolio/fixtures-1.jpg", alt: "Fixtures - dust & polish" },
+  { src: "/images/portfolio/breakroom-1.jpg", alt: "Breakroom - periodic deep clean" },
+];
+---
+
+<section class="max-w-6xl mx-auto px-6 py-12">
+  <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-4">
+    Recent Results
+  </h2>
+  <p class="text-slate-600 mb-8">
+    A few snapshots from post-construction and periodic work. More references on request.
+  </p>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+    {photos.map((p) => (
+      <figure class="overflow-hidden rounded-xl border border-slate-200 bg-white">
+        <img
+          src={p.src}
+          alt={p.alt}
+          loading="lazy"
+          class="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
+        />
+        <figcaption class="px-3 py-2 text-sm text-slate-600">{p.alt}</figcaption>
+      </figure>
+    ))}
+  </div>
+</section>
