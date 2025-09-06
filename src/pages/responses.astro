@@ -2,32 +2,32 @@
 // src/pages/responses.astro
 import Base from "../layouts/Base.astro";
 import { responses } from "../data/responses";
-
-const pageTitle = "Response Library";
 ---
 
-<Base title={pageTitle}>
-  <section class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-    <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 mb-8">
-      {pageTitle}
+<Base title="Response Library" description="Copy-ready responses for client outreach">
+  <section class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-10">
+    <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-800 mb-8">
+      Response Library
     </h1>
 
     <div class="space-y-8">
-      {responses.map((r) => (
+      {responses.map((r, idx) => (
         <article class="rounded-xl border border-slate-200 bg-white shadow-sm">
-          <header class="px-6 pt-5">
-            <h2 class="text-2xl font-bold text-slate-900">{r.title}</h2>
+          <header class="px-5 pt-5">
+            <h2 class="text-2xl font-semibold text-slate-800">{r.title}</h2>
           </header>
 
-          <div class="px-6 pb-5">
+          <div class="px-5 pb-5">
             <textarea
+              class="mt-4 w-full h-56 rounded-md border border-slate-200 bg-slate-50 p-4 font-mono text-[15px] leading-7 text-slate-900"
               readonly
-              class="mt-4 w-full h-56 rounded-md border border-slate-200 bg-slate-50 p-4 font-mono text-lg leading-relaxed text-slate-800"
-            >{r.text}</textarea>
+              id={`resp-${idx}`}
+            >{r.body}</textarea>
 
             <button
-              class="copy-btn mt-4 inline-flex items-center rounded-md bg-blue-600 px-5 py-3 text-white font-semibold hover:bg-blue-700 active:bg-blue-800"
-              data-target={r.key}
+              class="mt-4 inline-flex items-center rounded-md bg-blue-600 px-5 py-3 text-white font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              data-idx={idx}
+              aria-label={`Copy ${r.title}`}
             >
               Copy
             </button>
@@ -37,22 +37,27 @@ const pageTitle = "Response Library";
     </div>
   </section>
 
-  <script is:inline>
-    // Copy the textarea contents next to the clicked button
-    document.querySelectorAll(".copy-btn").forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        const article = (e.currentTarget as HTMLElement).closest("article");
-        if (!article) return;
-        const ta = article.querySelector("textarea") as HTMLTextAreaElement | null;
+  <script>
+    // Copy handlers for each button
+    document.querySelectorAll("button[data-idx]").forEach((btn) => {
+      btn.addEventListener("click", async () => {
+        const idx = btn.getAttribute("data-idx");
+        const ta = document.getElementById(`resp-\${idx}`) as HTMLTextAreaElement | null;
         if (!ta) return;
-        ta.select();
-        ta.setSelectionRange(0, ta.value.length);
+
         try {
+          await navigator.clipboard.writeText(ta.value);
+          const prev = btn.textContent;
+          btn.textContent = "Copied!";
+          setTimeout(() => (btn.textContent = prev), 1200);
+        } catch {
+          // Fallback
+          ta.select();
           document.execCommand("copy");
-          (e.currentTarget as HTMLButtonElement).textContent = "Copied!";
-          setTimeout(() => ((e.currentTarget as HTMLButtonElement).textContent = "Copy"), 1500);
-        } catch {}
-        window.getSelection()?.removeAllRanges();
+          const prev = btn.textContent;
+          btn.textContent = "Copied!";
+          setTimeout(() => (btn.textContent = prev), 1200);
+        }
       });
     });
   </script>
