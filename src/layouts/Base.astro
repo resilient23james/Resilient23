@@ -31,16 +31,20 @@ const { title = 'Resilient', description = '' } = Astro.props;
           </span>
         </a>
 
-        <nav class="hidden sm:block">
-          <ul class="flex items-center gap-6 text-[0.975rem] font-medium">
-            <li><a class="hover:text-sky-700" href="/about">About</a></li>
-            <li><a class="hover:text-sky-700" href="/services">Services</a></li>
-            <li><a class="hover:text-sky-700" href="/careers">Careers</a></li>
-            <li><a class="hover:text-sky-700" href="/contact">Contact</a></li>
-            <!-- Keep Responses off the main nav so it doesn't look public -->
-            <!-- <li><a class="hover:text-sky-700" href="/responses">Responses</a></li> -->
-          </ul>
-        </nav>
+        <nav class="flex items-center justify-between py-4">
+  <div class="flex items-center space-x-2">
+    <img src="/resilient_logo_header.png" alt="Resilient Logo" class="h-8 w-8" />
+    <span class="font-bold text-lg">Resilient</span>
+  </div>
+  <div class="space-x-6">
+    <a href="/" class="hover:underline">Home</a>
+    <a href="/about" class="hover:underline">About</a>
+    <a href="/services" class="hover:underline">Services</a>
+    <a href="/careers" class="hover:underline">Careers</a>
+    <a href="/contact" class="hover:underline">Contact</a>
+    <a href="/responses" class="hover:underline">Responses</a> <!-- add this -->
+  </div>
+</nav>
 
         <!-- Mobile menu button (kept simple; no drawer JS) -->
         <a
