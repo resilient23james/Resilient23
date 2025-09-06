@@ -1,49 +1,57 @@
 ---
-interface Props {
+export interface Props {
   title?: string;
   description?: string;
-  canonical?: string;       // e.g. "/services/"
-  ogImage?: string;         // e.g. "/og.jpg"
+  noindex?: boolean;
 }
 
 const {
-  title = "Resilient Commercial Solutions LLC",
-  description = "Dependable, compliant, high-quality facility services. Florida LLC · Hiscox CGL $2M/$2M.",
-  canonical = Astro.url.pathname,
-  ogImage = "/og-default.jpg"
+  title = "Resilient",
+  description = "Resilient Commercial Solutions LLC",
+  noindex = false
 } = Astro.props;
-
-const SITE = "https://resilient23.netlify.app"; // change if custom domain
-const url = SITE.replace(/\/$/, "") + canonical;
 ---
 
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-slate-50">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="/favicon.ico" />
+
     <title>{title}</title>
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex,nofollow" />}
 
-    <!-- Canonical -->
-    <link rel="canonical" href={url} />
-
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:url" content={url} />
-    <meta property="og:image" content={ogImage} />
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
-
-    <!-- Minimal typography & tailwind already loaded elsewhere -->
+    <!-- Tailwind should already be wired via the Astro/Tailwind integration.
+         No <link> to a non-existent global.css to avoid “Could not resolve …/global.css”. -->
   </head>
-  <body class="bg-slate-50 text-slate-900">
-    <slot />
+
+  <body class="min-h-full text-slate-900 antialiased">
+    <!-- Simple in-layout header so we don't import unknown components -->
+    <header class="bg-white border-b border-slate-200">
+      <nav class="max-w-6xl mx-auto flex items-center justify-between px-4 py-4">
+        <a href="/" class="inline-flex items-center gap-2 font-bold text-xl">
+          <span class="inline-block h-6 w-6 rounded bg-slate-900"></span>
+          Resilient
+        </a>
+        <ul class="hidden sm:flex items-center gap-6 text-slate-700">
+          <li><a class="hover:text-slate-900" href="/services/">Services</a></li>
+          <li><a class="hover:text-slate-900" href="/careers/">Careers</a></li>
+          <li><a class="hover:text-slate-900" href="/subcontractors/">Subcontractors</a></li>
+          <li><a class="hover:text-slate-900" href="/contact/">Contact</a></li>
+          <li><a class="hover:text-slate-900" href="/scripts/">Tools</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main" class="min-h-[60vh]">
+      <slot />
+    </main>
+
+    <footer class="mt-20 border-t border-slate-200 bg-white">
+      <div class="max-w-6xl mx-auto px-4 py-10 text-sm text-slate-600">
+        © {new Date().getFullYear()} Resilient Commercial Solutions LLC
+      </div>
+    </footer>
   </body>
 </html>
