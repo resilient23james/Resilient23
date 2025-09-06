@@ -1,137 +1,31 @@
 ---
-import Base from "../layouts/Base.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<Base
+<BaseLayout
   title="About Us | Resilient Commercial Solutions LLC"
-  description="Learn about Resilient Commercial Solutions LLC — a licensed and insured facility services provider built on quality, compliance, and reliability."
-  canonical="/about/"
-/>
-
-<section class="max-w-6xl mx-auto px-6 py-12">
-  <h1 class="text-4xl font-extrabold mb-6">About Us</h1>
-  <p>
-    Resilient Commercial Solutions LLC is committed to providing reliable,
-    compliant, and high-quality facility services across NC and FL.
-  </p>
-</section>
----
-import Base from "../layouts/Base.astro";
----
-
-<Base title="About | Resilient Careers">
-  <section class="max-w-4xl mx-auto p-8">
-    <!-- Hero / Intro -->
-    <h1 class="text-4xl font-extrabold tracking-tight mb-3">
-      About Resilient Commercial Solutions LLC
-    </h1>
-    <p class="text-lg text-gray-700 mb-8">
-      We’re a licensed and insured facility services company delivering reliable, compliant,
-      and consistent janitorial solutions for commercial and public sector clients.
+  description="Learn about Resilient — licensed & insured facility services built on quality, compliance, and reliability."
+>
+  <section class="max-w-6xl mx-auto px-6 py-12">
+    <h1 class="text-4xl font-extrabold mb-6">About Us</h1>
+    <p class="text-slate-700 max-w-3xl">
+      Resilient Commercial Solutions LLC provides dependable facility services across North Carolina and Florida.
+      We operate with documented SOPs, insurance coverage, and a safety-first culture.
     </p>
 
-    <!-- Mission -->
-    <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm mb-10">
-      <h2 class="text-2xl font-semibold mb-2">Our Mission</h2>
-      <p class="text-gray-700 leading-relaxed">
-        To raise the bar for commercial cleaning by pairing disciplined operations with
-        trustworthy people—so every client experiences a safe, healthy, and always-ready
-        workplace. We believe resilience is built daily through quality, accountability,
-        and care for the people who use the spaces we maintain.
-      </p>
-    </div>
-
-    <!-- What we do -->
-    <div class="grid md:grid-cols-3 gap-6 mb-10">
-      <div class="border border-gray-200 rounded-lg p-5">
-        <h3 class="font-semibold text-lg mb-1">Daily/Weekly Janitorial</h3>
-        <p class="text-gray-700 text-sm">
-          Routine cleaning programs tailored to traffic, compliance needs, and budgets.
-        </p>
+    <div class="mt-8 grid md:grid-cols-3 gap-6">
+      <div class="rounded-lg border p-5">
+        <div class="text-sm font-semibold">Business</div>
+        <p class="text-sm text-slate-600 mt-2">Florida LLC (Doc #L23000503930), Active since Nov 6, 2023.</p>
       </div>
-      <div class="border border-gray-200 rounded-lg p-5">
-        <h3 class="font-semibold text-lg mb-1">Project & Deep Cleaning</h3>
-        <p class="text-gray-700 text-sm">
-          Floors, restrooms, high-touch areas, move-in/out, and seasonal refreshes.
-        </p>
+      <div class="rounded-lg border p-5">
+        <div class="text-sm font-semibold">Insurance</div>
+        <p class="text-sm text-slate-600 mt-2">Hiscox CGL $2M per occurrence / $2M aggregate.</p>
       </div>
-      <div class="border border-gray-200 rounded-lg p-5">
-        <h3 class="font-semibold text-lg mb-1">Government & Regulated Sites</h3>
-        <p class="text-gray-700 text-sm">
-          Trained teams for sensitive facilities, using green products and documented SOPs.
-        </p>
+      <div class="rounded-lg border p-5">
+        <div class="text-sm font-semibold">Coverage Areas</div>
+        <p class="text-sm text-slate-600 mt-2">NC (Wake), FL (Hillsborough, Pasco, Pinellas).</p>
       </div>
     </div>
-
-    <!-- Credentials -->
-    <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm mb-10">
-      <h2 class="text-2xl font-semibold mb-4">Company Credentials</h2>
-      <ul class="list-disc list-inside space-y-2 text-gray-800">
-        <li>
-          <span class="font-medium">Business Form:</span> Limited Liability Company (LLC)
-        </li>
-        <li>
-          <span class="font-medium">Registered in Florida:</span>
-          Active LLC since Nov. 6, 2023 — Document #L23000503930
-        </li>
-        <li>
-          <span class="font-medium">Insurance (Hiscox CGL):</span>
-          $2M per occurrence / $2M aggregate;
-          effective Aug. 25, 2025 – Aug. 25, 2026
-        </li>
-      </ul>
-    </div>
-
-    <!-- Coverage & Hiring Note -->
-    <div class="border border-blue-100 bg-blue-50 rounded-xl p-6 mb-10">
-      <h2 class="text-2xl font-semibold mb-2">Where We’re Working & Hiring</h2>
-      <p class="text-gray-700">
-        We currently service clients in North Carolina and Florida and are actively hiring
-        in <span class="font-medium">Wake County (NC)</span> and Florida’s
-        <span class="font-medium">Hillsborough, Pasco, and Pinellas</span> counties.
-      </p>
-    </div>
-
-    <!-- Values -->
-    <div class="grid md:grid-cols-3 gap-6 mb-12">
-      <div class="border border-gray-200 rounded-lg p-5">
-        <h3 class="font-semibold mb-1">Quality</h3>
-        <p class="text-sm text-gray-700">
-          Checklists, inspections, and feedback loops to keep standards high.
-        </p>
-      </div>
-      <div class="border border-gray-200 rounded-lg p-5">
-        <h3 class="font-semibold mb-1">Compliance</h3>
-        <p class="text-sm text-gray-700">
-          Documented SOPs, green products, and safety-first training.
-        </p>
-      </div>
-      <div class="border border-gray-200 rounded-lg p-5">
-        <h3 class="font-semibold mb-1">Reliability</h3>
-        <p class="text-sm text-gray-700">
-          Professional crews, clear communication, and dependable scheduling.
-        </p>
-      </div>
-    </div>
-
-    <!-- CTA -->
-    <div class="text-center">
-      <a
-        href="/contact"
-        class="inline-block bg-red-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-red-700"
-      >
-        Request a Quote
-      </a>
-      <a
-        href="/careers"
-        class="inline-block ml-3 border border-gray-300 px-6 py-3 rounded-lg font-medium hover:bg-gray-50"
-      >
-        See Open Roles
-      </a>
-    </div>
-
-    <p class="mt-12 text-gray-500 text-sm">
-      © {new Date().getFullYear()} Resilient Commercial Solutions LLC. All rights reserved.
-    </p>
   </section>
-</Base>
+</BaseLayout>
