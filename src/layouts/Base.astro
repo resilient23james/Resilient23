@@ -21,13 +21,23 @@ const { title = "Resilient" } = Astro.props;
 
           <!-- Desktop Nav -->
           <nav class="hidden md:flex items-center gap-6">
-            <a href="/" class="hover:underline">Home</a>
-            <a href="/about" class="hover:underline">About</a>
-            <a href="/services" class="hover:underline">Services</a>
-            <a href="/careers" class="hover:underline">Careers</a>
-            <a href="/contact" class="hover:underline">Contact</a>
-            <a href="/responses" class="hover:underline">Responses</a>
-          </nav>
+  <a href="/" class="hover:underline">Home</a>
+  <a href="/about" class="hover:underline">About</a>
+  <a href="/services" class="hover:underline">Services</a>
+  <a href="/careers" class="hover:underline">Careers</a>
+  <a href="/contact" class="hover:underline">Contact</a>
+  <a href="/subcontractors" class="hover:underline">Subcontractors</a>
+</nav>
+
+<!-- mobile drawer list should also use /subcontractors -->
+<ul class="flex flex-col gap-2 pt-2 md:hidden">
+  <li><a href="/" class="block rounded px-2 py-2 hover:bg-slate-100">Home</a></li>
+  <li><a href="/about" class="block rounded px-2 py-2 hover:bg-slate-100">About</a></li>
+  <li><a href="/services" class="block rounded px-2 py-2 hover:bg-slate-100">Services</a></li>
+  <li><a href="/careers" class="block rounded px-2 py-2 hover:bg-slate-100">Careers</a></li>
+  <li><a href="/contact" class="block rounded px-2 py-2 hover:bg-slate-100">Contact</a></li>
+  <li><a href="/subcontractors" class="block rounded px-2 py-2 hover:bg-slate-100">Subcontractors</a></li>
+</ul>
 
           <!-- Mobile menu button -->
           <button
