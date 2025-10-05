@@ -1,5 +1,6 @@
 import '../globals.css';
-import Header from '@components/Header';
+// RCS_v5399_masterSave/app/layout.tsx
+import '../globals.css'; // or './globals.css' if you moved the file per Option A
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
