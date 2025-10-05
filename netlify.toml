@@ -1,8 +1,14 @@
-
 [build]
-  command = "npm run build"
-  publish = ".next"
+  command   = "npm run build"
+  publish   = ".next"
   functions = "netlify/functions"
 
+[build.environment]
+  NODE_VERSION = "20"
+
+# Netlify Next.js runtime (managed)
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
+[functions]
+  node_bundler = "esbuild"
