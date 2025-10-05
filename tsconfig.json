@@ -1,31 +1,18 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "lib": ["dom", "dom.iterable", "es2022"],
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": false,
     "skipLibCheck": true,
     "strict": true,
-    "noEmit": true,
-    "jsx": "preserve",
     "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "incremental": true,
-    "types": ["@netlify/functions"],
-    "baseUrl": ".",
-    "verbatimModuleSyntax": true
+    "jsx": "preserve",
+    "incremental": true
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ],
-  "exclude": [
-    "node_modules"
-  ],
-  "plugins": [
-    { "name": "next" }
-  ]
+  "include": ["app", "components", "netlify", "next-env.d.ts"]
 }
