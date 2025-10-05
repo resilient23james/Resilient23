@@ -1,15 +1,15 @@
 'use client';
-
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 export default function ShayButton() {
   const [open, setOpen] = useState(false);
 
-  // Close on ESC
   useEffect(() => {
     if (!open) return;
-    const onEsc = (e: KeyboardEvent) => e.key === 'Escape' && setOpen(false);
+    const onEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false);
+    };
     window.addEventListener('keydown', onEsc);
     return () => window.removeEventListener('keydown', onEsc);
   }, [open]);
@@ -20,91 +20,58 @@ export default function ShayButton() {
       <button
         aria-label="Open Shay Assistant"
         onClick={() => setOpen(true)}
-        className="
-          fixed bottom-6 right-6 z-50
-          h-16 w-16 rounded-full shadow-lg ring-2 ring-white/70
-          overflow-hidden bg-white
-          before:absolute before:inset-0 before:rounded-full
-          before:animate-ping before:bg-red-500/20
-        "
-        style={{ WebkitTapHighlightColor: 'transparent' }}
+        style={{
+          position: 'fixed',
+          right: 20,
+          bottom: 20,
+          width: 72,
+          height: 72,
+          borderRadius: 9999,
+          boxShadow: '0 10px 25px rgba(0,0,0,0.25)',
+          overflow: 'hidden',
+          border: '0',
+          background: '#fff'
+        }}
       >
-        {/* Shay avatar */}
         <Image
           src="/shay-avatar.jpg"
           alt="Shay"
           fill
-          priority
-          sizes="64px"
-          className="object-cover"
+          sizes="72px"
+          style={{ objectFit: 'cover' }}
         />
       </button>
 
-      {/* Overlay + dialog */}
-      {open && (
+      {/* Very simple modal placeholder so you see it works */}
+      {open ? (
         <div
-          className="fixed inset-0 z-50 flex items-end sm:items-center sm:justify-center"
-          role="dialog"
-          aria-modal="true"
+          onClick={() => setOpen(false)}
+          style={{
+            position: 'fixed',
+            inset: 0,
+            background: 'rgba(0,0,0,0.4)',
+            display: 'grid',
+            placeItems: 'center',
+            zIndex: 50
+          }}
         >
-          {/* Backdrop */}
           <div
-            className="absolute inset-0 bg-black/40"
-            onClick={() => setOpen(false)}
-          />
-
-          {/* Card */}
-          <div className="relative z-10 m-4 w-full sm:max-w-lg rounded-2xl bg-white shadow-2xl">
-            <div className="flex items-center gap-3 border-b px-4 py-3">
-              <div className="relative h-8 w-8 overflow-hidden rounded-full ring-1 ring-black/10">
-                <Image
-                  src="/shay-avatar.jpg"
-                  alt="Shay"
-                  fill
-                  sizes="32px"
-                  className="object-cover"
-                  priority
-                />
+            onClick={(e) => e.stopPropagation()}
+            style={{ background: '#fff', borderRadius: 12, padding: 20, width: 360 }}
+          >
+            <div style={{ display: 'flex', gap: 10, alignItems: 'center', marginBottom: 10 }}>
+              <div style={{ position: 'relative', width: 36, height: 36, borderRadius: 9999, overflow: 'hidden' }}>
+                <Image src="/shay-avatar.jpg" alt="Shay" fill sizes="36px" style={{ objectFit: 'cover' }} />
               </div>
-              <div className="font-semibold">Shay Assistant</div>
-              <button
-                onClick={() => setOpen(false)}
-                className="ml-auto rounded px-2 py-1 text-sm text-gray-600 hover:bg-gray-100"
-                aria-label="Close"
-              >
-                Close
-              </button>
+              <strong>Shay Assistant</strong>
             </div>
-
-            <div className="px-4 pb-4 pt-3">
-              <p className="text-sm text-gray-700">
-                Ask in English or Spanish. Example:{' '}
-                <em>“Cotización de limpieza para oficina de 5,000 pies²”.</em>
-              </p>
-
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  // hook your runtime later (Netlify / API route / etc.)
-                }}
-                className="mt-3 flex gap-2"
-              >
-                <input
-                  type="text"
-                  placeholder="Type here…"
-                  className="flex-1 rounded-lg border px-3 py-2 outline-none focus:ring"
-                />
-                <button
-                  type="submit"
-                  className="rounded-lg bg-black px-4 py-2 text-white"
-                >
-                  Send
-                </button>
-              </form>
-            </div>
+            <p style={{ color: '#444', fontSize: 14 }}>
+              Hola/Hello — this is a placeholder chat. The visual proves the avatar bubble is wired correctly.
+            </p>
+            <button onClick={() => setOpen(false)} style={{ marginTop: 12, padding: '8px 12px', borderRadius: 8, background: '#000', color: '#fff' }}>Close</button>
           </div>
         </div>
-      )}
+      ) : null}
     </>
   );
 }
