@@ -1,5 +1,4 @@
-
-import './globals.css';
+import '../styles/globals.css';
 import ShayChat from '../components/ShayChat';
 
 export const metadata = {
