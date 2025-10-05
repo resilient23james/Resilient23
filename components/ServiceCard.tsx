@@ -1,17 +1,17 @@
+// components/ServiceCard.tsx
 'use client';
-
 import React from 'react';
 
 type Props = {
   title: string;
-  blurb: string;
+  desc: string;
 };
 
-export default function ServiceCard({ title, blurb }: Props) {
+export default function ServiceCard({ title, desc }: Props) {
   return (
-    <div className="rounded-2xl border border-zinc-200/70 bg-white shadow-sm p-6 md:p-8">
-      <h3 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-2">{title}</h3>
-      <p className="text-zinc-600 text-lg leading-relaxed">{blurb}</p>
-    </div>
+    <article className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+      <h3 className="text-2xl font-semibold tracking-tight">{title}</h3>
+      <p className="mt-2 text-lg text-gray-600">{desc}</p>
+    </article>
   );
 }
