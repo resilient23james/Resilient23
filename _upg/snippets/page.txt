@@ -1,0 +1,29 @@
+// Import the content object
+import { site } from "@/content/resilient";
+
+export default function Home() {
+  const h1Lines = site.hero.h1;     // switch to h1_es for Spanish page
+  const sub = site.tagline;         // switch to tagline_es for Spanish page
+
+  return (
+    <main>
+      <header className="container">
+        <h1 className="hero-title">
+          {h1Lines.map((line, i) => (
+            <span key={i} className="block">{line}</span>
+          ))}
+        </h1>
+        <p className="hero-sub">{sub}</p>
+      </header>
+
+      <section className="container grid">
+        {site.divisions.map(d => (
+          <article key={d.key} className="card">
+            <h3>{d.name}</h3>
+            <p>{d.blurb}</p>
+          </article>
+        ))}
+      </section>
+    </main>
+  );
+}
