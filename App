@@ -1,9 +1,0 @@
-es
-subcontactor
-quote
-careers
-contact
-layout.tsx
-globals
-page.tsx
-thank you
