@@ -1,5 +1,0 @@
-*{box-sizing:border-box}html,body{margin:0;padding:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
-.container{max-width:1100px;margin:0 auto;padding:2rem}.hero{background:#0b1a2a;color:#fff;border-radius:16px;padding:2rem}
-.button{display:inline-block;padding:.9rem 1.2rem;border-radius:10px;text-decoration:none;border:none;cursor:pointer;font-weight:700}
-.primary{background:#2e6bff;color:#fff}.secondary{background:#232a36;color:#e6ebf5}.card{background:#132235;color:#e6ebf5;border-radius:16px;padding:1.25rem;margin-top:1.25rem}
-form{display:grid;gap:.75rem;max-width:640px}input,textarea{padding:.8rem 1rem;border:1px solid #d0d5dd;border-radius:10px;font-size:1rem}
