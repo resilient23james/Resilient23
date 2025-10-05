@@ -1,31 +1,33 @@
+// netlify/functions/sendEmail.ts
 import type { Handler } from "@netlify/functions";
 import sgMail from "@sendgrid/mail";
 
-export const handler: Handler = async (event) => {
-  const { SENDGRID_API_KEY, FROM_EMAIL, LEADS_TO } = process.env;
+const KEY = process.env.SENDGRID_API_KEY!;
+const FROM = process.env.FROM_EMAIL!;
+const TO = process.env.LEADS_TO!;
 
-  if (!SENDGRID_API_KEY || !FROM_EMAIL || !LEADS_TO) {
-    return {
-      statusCode: 500,
-      body: "Missing email environment variables"
-    };
+sgMail.setApiKey(KEY);
+
+export const handler: Handler = async (event) => {
+  if (event.httpMethod !== "POST") {
+    return { statusCode: 405, body: "Method Not Allowed" };
   }
 
-  import sgMail from "@sendgrid/mail";
-sgMail.setApiKey(process.env.SENDGRID_API_KEY!);
-
-  const msg = {
-    to: LEADS_TO,
-    from: FROM_EMAIL,
-    subject: `New lead from ${name}`,
-    text: `Email: ${email}\n\nMessage:\n${message}`
-  };
-
   try {
+    const body = JSON.parse(event.body ?? "{}");
+    const { name, email, phone, message } = body;
+
+    const msg = {
+      to: TO,
+      from: FROM,
+      subject: "New lead from website",
+      text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`,
+    };
+
     await sgMail.send(msg);
-    return { statusCode: 200, body: "Email sent successfully" };
-  } catch (error) {
-    console.error(error);
-    return { statusCode: 500, body: "Failed to send email" };
+    return { statusCode: 200, body: JSON.stringify({ ok: true }) };
+  } catch (err) {
+    console.error(err);
+    return { statusCode: 500, body: JSON.stringify({ error: "Failed to send" }) };
   }
 };
