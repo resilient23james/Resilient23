@@ -1,33 +1,43 @@
 // netlify/functions/sendEmail.ts
-import type { Handler } from "@netlify/functions";
-import sgMail from "@sendgrid/mail";
-
-const KEY = process.env.SENDGRID_API_KEY!;
-const FROM = process.env.FROM_EMAIL!;
-const TO = process.env.LEADS_TO!;
-
-sgMail.setApiKey(KEY);
+import type { Handler } from '@netlify/functions';
+import sgMail from '@sendgrid/mail';
 
 export const handler: Handler = async (event) => {
-  if (event.httpMethod !== "POST") {
-    return { statusCode: 405, body: "Method Not Allowed" };
+  if (event.httpMethod !== 'POST') {
+    return { statusCode: 405, body: 'Method Not Allowed' };
   }
 
+  // Read env AT RUNTIME so the key isn't inlined into build artifacts
+  const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY;
+  const FROM_EMAIL = process.env.FROM_EMAIL;
+  const LEADS_TO = process.env.LEADS_TO;
+
+  if (!SENDGRID_API_KEY || !FROM_EMAIL || !LEADS_TO) {
+    return { statusCode: 500, body: 'Missing email env vars' };
+  }
+
+  sgMail.setApiKey(SENDGRID_API_KEY);
+
+  let payload: any = {};
   try {
-    const body = JSON.parse(event.body ?? "{}");
-    const { name, email, phone, message } = body;
+    payload = JSON.parse(event.body ?? '{}');
+  } catch (_) {}
 
-    const msg = {
-      to: TO,
-      from: FROM,
-      subject: "New lead from website",
-      text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`,
-    };
+  const { name = 'Website', email = FROM_EMAIL, message = '' } = payload;
 
-    await sgMail.send(msg);
-    return { statusCode: 200, body: JSON.stringify({ ok: true }) };
+  const msg = {
+    to: LEADS_TO.split(',').map((s) => s.trim()),
+    from: FROM_EMAIL,
+    replyTo: email,
+    subject: `New lead from ${name}`,
+    text: message,
+  };
+
+  try {
+    await sgMail.send(msg as any);
+    return { statusCode: 200, body: 'OK' };
   } catch (err) {
-    console.error(err);
-    return { statusCode: 500, body: JSON.stringify({ error: "Failed to send" }) };
+    console.error('SendGrid error:', err);
+    return { statusCode: 500, body: 'Email failed' };
   }
 };
