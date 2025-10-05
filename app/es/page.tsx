@@ -1,33 +1,16 @@
-export default function HomeES() {
-  return (
-    <main className="max-w-5xl mx-auto px-6 py-16">
-      <h1 className="text-5xl font-extrabold leading-tight mb-6">
-        Soluciones Comerciales Resilient
-      </h1>
-      <p className="text-xl text-gray-600 mb-10">
-        Un equipo. Tres divisiones. Resiliencia total.
-      </p>
-
-      <section className="grid gap-6 md:grid-cols-3">
-        <div className="rounded-xl border p-5">
-          <h3 className="font-semibold text-lg">Limpieza</h3>
-          <p className="text-sm text-gray-600">
-            Servicio diario, porteros, cuidado de pisos y limpieza post‑construcción.
-          </p>
-        </div>
-        <div className="rounded-xl border p-5">
-          <h3 className="font-semibold text-lg">Paisajismo</h3>
-          <p className="text-sm text-gray-600">
-            Mantenimiento, mejoras, riego y color de temporada.
-          </p>
-        </div>
-        <div className="rounded-xl border p-5">
-          <h3 className="font-semibold text-lg">Restauración</h3>
-          <p className="text-sm text-gray-600">
-            Agua, fuego, moho, cierre de emergencia y respuesta 24/7.
-          </p>
-        </div>
-      </section>
-    </main>
-  );
+import ServiceCard from '@/components/ServiceCard';
+import ShayButton from '@/components/ShayButton';
+export default function Page(){
+  return(<main className="px-4 md:px-6 pb-28">
+    <section className="space-y-6 pt-6 md:pt-10">
+      <h1 className="text-6xl md:text-8xl font-black tracking-tight leading-tight">Soluciones</h1>
+      <p className="text-2xl md:text-3xl text-zinc-600 dark:text-zinc-300 max-w-3xl">Un equipo. Tres divisiones. Resiliencia total.</p>
+    </section>
+    <section className="mt-10 grid gap-6">
+      <ServiceCard title="Limpieza" desc="Programas de conserjería, porteros, cuidado de pisos y limpieza post-construcción."/>
+      <ServiceCard title="Mecánico Móvil" desc="Reparación en sitio de flotas y equipos, mantenimiento preventivo y despacho rápido."/>
+      <ServiceCard title="Restauración" desc="Agua, fuego, moho, cierres de emergencia y respuesta 24/7."/>
+    </section>
+    <ShayButton/>
+  </main>);
 }
