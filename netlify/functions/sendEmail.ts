@@ -11,8 +11,8 @@ export const handler: Handler = async (event) => {
     };
   }
 
-  sgMail.setApiKey(SENDGRID_API_KEY);
-  const { name, email, message } = JSON.parse(event.body || "{}");
+  import sgMail from "@sendgrid/mail";
+sgMail.setApiKey(process.env.SENDGRID_API_KEY!);
 
   const msg = {
     to: LEADS_TO,
