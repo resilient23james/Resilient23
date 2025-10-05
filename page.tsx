@@ -1,9 +1,17 @@
 export const dynamic = 'force-static';
-export default function Page(){
+export default function Page() {
   return (
     <main>
-      <h1>Resilient Commercial Solutions</h1>
-      <p className="lead">One team. Three divisions. Total resilience.</p>
+      <h1>Careers</h1>
+      <form className="form" action="/.netlify/functions/send-lead" method="post" encType="multipart/form-data">
+        <input type="hidden" name="formType" value="Careers" />
+        <input name="name" placeholder="Name" required />
+        <input name="email" type="email" placeholder="Email" required />
+        <input name="phone" placeholder="Phone" />
+        <textarea name="message" placeholder="Message / Scope" rows=6 />
+        <label>Attachment <input name="file" type="file" /></label>
+        <button type="submit">Send</button>
+      </form>
     </main>
   );
 }
