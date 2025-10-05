@@ -1,8 +1,0 @@
-[build]
-  base = "RCS_v5401_masterSave_NetlifyDeploy"
-  command = "npm run build"
-  publish = "RCS_v5401_masterSave_NetlifyDeploy/.next"
-  functions = "RCS_v5401_masterSave_NetlifyDeploy/netlify/functions"
-
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
