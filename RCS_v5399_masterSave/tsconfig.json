@@ -1,5 +1,9 @@
 {
   "compilerOptions": {
+    // …your existing options…
+  },
+  "exclude": ["node_modules", ".next", "netlify/functions"]
+}
     "target": "ES2021",
     "lib": [
       "dom",
