@@ -1,40 +1,47 @@
-import { site } from "@/content/resilient";
-export default function Page(){
+// app/page.tsx
+import Image from 'next/image';
+
+export default function Home() {
   return (
-    <main className="px-6">
-      <h1 className="text-5xl font-extrabold max-w-[12ch]">Resilient Commercial Solutions</h1>
-      <p className="mt-6 text-xl">One team. Three divisions. Total resilience.</p>
+    <main className="max-w-5xl mx-auto px-6 py-16">
+      <h1 className="text-5xl font-extrabold leading-tight text-gray-900">
+        Resilient Commercial Solutions
+      </h1>
+      <p className="mt-4 text-xl text-gray-700">
+        One team. Three divisions. Total resilience.
+      </p>
+
+      {/* Shay Avatar */}
+      <div className="mt-10 flex items-center gap-4">
+        <Image
+          src="/shay-avatar.jpg"
+          alt="Shay Assistant"
+          width={96}
+          height={96}
+          className="rounded-full border-4 border-red-600 shadow-xl"
+          priority
+        />
+        <div>
+          <p className="font-semibold text-gray-900">Shay Assistant</p>
+          <p className="text-sm text-gray-600">Ask in English or Spanish.</p>
+        </div>
+      </div>
+
+      {/* Body content */}
+      <section className="mt-12 space-y-6">
+        <h2 className="text-2xl font-bold">Our Divisions</h2>
+        <ul className="list-disc pl-6 space-y-2">
+          <li>
+            <strong>Facilities:</strong> Janitorial, floor care, and day porter services for commercial clients.
+          </li>
+          <li>
+            <strong>Restoration:</strong> Post-construction cleanup, disaster recovery, and specialty detailing.
+          </li>
+          <li>
+            <strong>Staffing:</strong> Reliable workforce support for property managers and developers.
+          </li>
+        </ul>
+      </section>
     </main>
   );
 }
-
-
-/* --- Injected: Resilient divisions (safe append) --- */
-export function ResilientDivisions() {
-  return (
-    <section className="container grid" style={{padding:'24px 16px'}}>
-      {site.divisions.map(d => (
-        <article key={d.key} className="card" style={{background:'#13161a',border:'1px solid #222833',borderRadius:12,padding:16,margin:8}}>
-          <h3 style={{marginTop:0}}>{d.name}</h3>
-          <p style={{opacity:.9}}>{d.blurb}</p>
-        </article>
-      ))}
-    </section>
-  );
-}
-
-/* auto-mount divisions under the page content if a default export exists */
-try {
-  const Orig = exports.default;
-  if (typeof Orig === 'function') {
-    exports.default = function WrappedPage(props){
-      const el = Orig(props);
-      return (
-        <>
-          {el}
-          <ResilientDivisions/>
-        </>
-      );
-    }
-  }
-} catch {}
