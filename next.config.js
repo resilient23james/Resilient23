@@ -1,16 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
-  output: 'standalone',
-  images: { unoptimized: true },
-  env: {
-    FROM_EMAIL: process.env.FROM_EMAIL,
-    LEADS_TO: process.env.LEADS_TO,
-    SENDGRID_API_KEY: process.env.SENDGRID_API_KEY,
-    SUPABASE_URL: process.env.SUPABASE_URL,
-    SUPABASE_ANON_KEY: process.env.SUPABASE_ANON_KEY
-  },
-  experimental: { appDir: true }
+  // Let the Netlify plugin handle output; do NOT set `output: 'export'`.
+  // images, redirects, etc. can be added here later if needed.
 };
 module.exports = nextConfig;
