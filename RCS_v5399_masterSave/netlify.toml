@@ -1,10 +1,42 @@
+# ─────────────────────────────────────────────
+# ✅ Netlify Configuration for RCS_v5399_masterSave
+# This version ensures Next.js builds and exports correctly
+# and that your SendGrid + Supabase functions are properly bundled.
+# ─────────────────────────────────────────────
+
 [build]
+# Root folder containing the Next.js project
+base = "RCS_v5399_masterSave"
+
+# The correct build command for static export
 command = "npm run build && npm run export"
-publish = "out"
 
+# Next.js static output directory
+publish = "RCS_v5399_masterSave/out"
+
+# ─────────────────────────────────────────────
+# ✅ Netlify Functions
+# This ensures your SendGrid & Supabase functions are recognized and bundled
+# ─────────────────────────────────────────────
 [functions]
-directory = "netlify/functions"
+directory = "RCS_v5399_masterSave/netlify/functions"
 node_bundler = "esbuild"
+included_files = ["RCS_v5399_masterSave/netlify/functions/**"]
 
+# ─────────────────────────────────────────────
+# ✅ Next.js Plugin for Netlify
+# Automatically optimizes SSR/ISR + routing for Next.js
+# ─────────────────────────────────────────────
 [[plugins]]
 package = "@netlify/plugin-nextjs"
+
+# ─────────────────────────────────────────────
+# ✅ Environment Variables (Optional)
+# You can also set these in the Netlify UI under “Site Settings → Environment Variables”
+# ─────────────────────────────────────────────
+[build.environment]
+FROM_EMAIL = "resilient23.james@gmail.com"
+LEADS_TO = "resilient23.james@gmail.com"
+SENDGRID_API_KEY = ""
+SUPABASE_URL = ""
+SUPABASE_ANON_KEY = ""
