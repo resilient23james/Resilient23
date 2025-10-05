@@ -1,10 +1,22 @@
-# Resilient23 — Master Patch (content-only)
+# RCS Visual + UX Upgrades (Drop‑in)
+Safe, shell‑preserving files you can upload directly in GitHub.
+**Overwrites** only the matching files below if they already exist.
 
-Drop these files into your repo and allow overwrite:
-- `app/page.tsx` — sets three service cards to **Facility Services**, **Mobile Mechanic**, **Restoration**.
-- `app/head.tsx` — SEO + OG/Twitter meta.
-- `app/careers/page.tsx` — placeholder to avoid 404.
-- `public/avatar-fallback.png` — optional fallback if Shay avatar fails.
-- `public/og-image.jpg` — social sharing image.
+**Adds/Updates**
+- components/ServiceCard.tsx
+- components/ShayButton.tsx
+- components/ShayModal.tsx
+- app/page.tsx
+- app/es/page.tsx
+- app/globals.upg.css  (optional import in layout.tsx)
+- public/shay-avatar.webp
+- public/robots.txt, public/sitemap.xml
+- netlify/functions/sendLead.js (stub)
 
-Netlify will rebuild automatically after you push to GitHub.
+**Use**
+1. Download this ZIP and extract.
+2. In GitHub: Add files › Upload files (to repo root). Drag folders to upload; accept overwrite.
+3. Optional: import './globals.upg.css' in `app/layout.tsx` below your existing globals.
+4. Netlify will rebuild automatically.
+
+Tailwind note: ensure your `tailwind.config.js` has `darkMode: 'class'` for best visuals.
