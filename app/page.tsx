@@ -1,47 +1,39 @@
-// app/page.tsx
-import Image from 'next/image';
-
 export default function Home() {
   return (
     <main className="max-w-5xl mx-auto px-6 py-16">
-      <h1 className="text-5xl font-extrabold leading-tight text-gray-900">
+      <h1 className="text-5xl font-extrabold leading-tight mb-6">
         Resilient Commercial Solutions
       </h1>
-      <p className="mt-4 text-xl text-gray-700">
+      <p className="text-xl text-gray-600 mb-10">
         One team. Three divisions. Total resilience.
       </p>
 
-      {/* Shay Avatar */}
-      <div className="mt-10 flex items-center gap-4">
-        <Image
-          src="/shay-avatar.jpg"
-          alt="Shay Assistant"
-          width={96}
-          height={96}
-          className="rounded-full border-4 border-red-600 shadow-xl"
-          priority
-        />
-        <div>
-          <p className="font-semibold text-gray-900">Shay Assistant</p>
-          <p className="text-sm text-gray-600">Ask in English or Spanish.</p>
+      <section className="grid gap-6 md:grid-cols-3">
+        <div className="rounded-xl border p-5">
+          <h3 className="font-semibold text-lg">Janitorial</h3>
+          <p className="text-sm text-gray-600">
+            Daily service, day porters, floor care, post-construction cleanup.
+          </p>
         </div>
-      </div>
-
-      {/* Body content */}
-      <section className="mt-12 space-y-6">
-        <h2 className="text-2xl font-bold">Our Divisions</h2>
-        <ul className="list-disc pl-6 space-y-2">
-          <li>
-            <strong>Facilities:</strong> Janitorial, floor care, and day porter services for commercial clients.
-          </li>
-          <li>
-            <strong>Restoration:</strong> Post-construction cleanup, disaster recovery, and specialty detailing.
-          </li>
-          <li>
-            <strong>Staffing:</strong> Reliable workforce support for property managers and developers.
-          </li>
-        </ul>
+        <div className="rounded-xl border p-5">
+          <h3 className="font-semibold text-lg">Landscaping</h3>
+          <p className="text-sm text-gray-600">
+            Maintenance, enhancements, irrigation, seasonal color.
+          </p>
+        </div>
+        <div className="rounded-xl border p-5">
+          <h3 className="font-semibold text-lg">Restoration</h3>
+          <p className="text-sm text-gray-600">
+            Water, fire, mold, board‑ups, and emergency response.
+          </p>
+        </div>
       </section>
+
+      <div className="mt-12">
+        <a href="/careers" className="inline-block rounded-lg bg-black text-white px-5 py-3">
+          Careers
+        </a>
+      </div>
     </main>
   );
 }
