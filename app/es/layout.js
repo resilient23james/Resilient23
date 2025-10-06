@@ -1,4 +1,5 @@
-import '../globals.css';
+import ShayButton from '@/components/ShayButton';
+import ServiceCard from '@/components/ServiceCard';
 export const metadata = {
   title: 'Resilient Commercial Solutions | Servicios de Instalaciones',
   description: 'Servicios de limpieza, restauración y mecánica móvil con estándares Fortune‑500 y atención de pequeña empresa.',
