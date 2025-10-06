@@ -1,4 +1,5 @@
-export default function Page(){return (<section className="section container">
+import ShayButton from '@/components/ShayButton';
+import ServiceCard from '@/components/ServiceCard';
 <h1 className="h1 mb-4">Servicios de Rehabilitación y Restauración — Cuando ocurre un desastre, Resilient responde.</h1>
 <p className="sub mb-8">Atendemos Hillsborough, Pinellas, Pasco, Florida Central, Oeste y Sur.</p>
 <div className="grid gap-6">
