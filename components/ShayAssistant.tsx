@@ -1,5 +1,4 @@
 'use client';
-export default function ShayAssistant(){
-  // Placeholder to keep build happy if you import it later.
-  return null;
+export default function ShayAssistant() {
+  return null; // placeholder, the visual is driven by ShayButton
 }
