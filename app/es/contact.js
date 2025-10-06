@@ -1,1 +1,2 @@
-export default function Page(){return (<section className='section container'><h1 className='h1 mb-4'>Contáctanos</h1><p className='sub'>Comunícate con nosotros para preguntas o soporte.</p></section>);}
+import ShayButton from '@/components/ShayButton';
+import ServiceCard from '@/components/ServiceCard';
