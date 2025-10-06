@@ -1,18 +1,22 @@
+import React from 'react';
 import ServiceCard from '../components/ServiceCard';
+import dynamic from 'next/dynamic';
+
+const ShayAssistant = dynamic(() => import('../components/ShayAssistant').catch(() => ({ default: () => null })), { ssr: false });
+
+export const metadata = { title: 'Resilient Commercial Solutions' };
 
 export default function Page() {
   return (
     <main className="px-4 md:px-6 pb-28">
-      <section className="pt-6 md:pt-10">
-        <h2 className="text-3xl md:text-4xl font-extrabold">
-          America’s Trusted Facility Partner for Cleaning, Restoration, and Maintenance Excellence.
-        </h2>
-        <p style={{color:'#cbd5e1'}} className="mt-3">
-          We deliver <strong>Fortune-500-level service</strong> with small-business care. From janitorial and day porter staffing to mobile mechanic and restoration response, Resilient keeps your operations spotless, safe, and running strong.
+      <section className="space-y-3 pt-6 md:pt-10">
+        <h1 className="sr-only">Resilient Commercial Solutions</h1>
+        <p className="text-2xl md:text-[28px] leading-snug text-neutral-700 max-w-3xl">
+          From Facility Services to Mobile Mechanic to Restoration — one team delivering <span className="font-semibold">total resilience</span>.
         </p>
       </section>
 
-      <section className="space-y-6 pt-8">
+      <section className="mt-10 grid gap-6">
         <ServiceCard
           title="Facility Services"
           desc="Custodial programs, day porters, floor care, and post-construction cleanup."
@@ -26,6 +30,8 @@ export default function Page() {
           desc="Water, fire, mold, board-ups, and emergency response."
         />
       </section>
+
+      <ShayAssistant />
     </main>
   );
 }

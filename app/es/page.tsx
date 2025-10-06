@@ -1,18 +1,22 @@
+import React from 'react';
 import ServiceCard from '../../components/ServiceCard';
+import dynamic from 'next/dynamic';
+
+const ShayAssistant = dynamic(() => import('../../components/ShayAssistant').catch(() => ({ default: () => null })), { ssr: false });
+
+export const metadata = { title: 'Soluciones Comerciales Resilient' };
 
 export default function Page() {
   return (
     <main className="px-4 md:px-6 pb-28">
-      <section className="pt-6 md:pt-10">
-        <h2 className="text-3xl md:text-4xl font-extrabold">
-          Su socio de confianza en limpieza, restauración y mantenimiento.
-        </h2>
-        <p style={{color:'#cbd5e1'}} className="mt-3">
-          Servicio de nivel Fortune-500 con atención de pequeña empresa. De conserjería y porteros a mecánico móvil y restauración, mantenemos su operación limpia, segura y en marcha.
+      <section className="space-y-3 pt-6 md:pt-10">
+        <h1 className="sr-only">Soluciones Comerciales Resilient</h1>
+        <p className="text-2xl md:text-[28px] leading-snug text-neutral-700 max-w-3xl">
+          De Servicios de Instalaciones a Mecánico Móvil y Restauración — un solo equipo con <span className="font-semibold">resiliencia total</span>.
         </p>
       </section>
 
-      <section className="space-y-6 pt-8">
+      <section className="mt-10 grid gap-6">
         <ServiceCard
           title="Servicios de Instalaciones"
           desc="Programas de conserjería, porteros, cuidado de pisos y limpieza post-construcción."
@@ -26,6 +30,8 @@ export default function Page() {
           desc="Agua, fuego, moho, cierres de emergencia y respuesta 24/7."
         />
       </section>
+
+      <ShayAssistant />
     </main>
   );
 }
