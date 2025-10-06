@@ -1,0 +1,1 @@
+export default function Industries(){return (<div className='grid md:grid-cols-5 gap-3 section'><div>Government</div><div>Healthcare</div><div>Education</div><div>Multi-Family</div><div>Industrial</div></div>);}

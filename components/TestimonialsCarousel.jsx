@@ -1,0 +1,1 @@
+export default function TestimonialsCarousel(){return (<div className='section text-center'>Testimonials coming soon.</div>);}
