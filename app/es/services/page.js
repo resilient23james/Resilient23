@@ -1,0 +1,1 @@
+export default function Page(){return (<section className='section container'><h1 className='h1 mb-4'>Servicios</h1><p className='sub'>Explora nuestras divisiones: Limpieza, Rehabilitación y Restauración, Mecánica Móvil.</p></section>);}

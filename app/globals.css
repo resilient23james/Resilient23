@@ -2,9 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-@keyframes float {
-  0% { transform: translateY(0) }
-  50% { transform: translateY(-6px) }
-  100% { transform: translateY(0) }
-}
-.animate-float { animation: float 3s ease-in-out infinite; }
+:root { --rcs-black:#0e0e10; --rcs-gray:#1f1f22; --rcs-red:#c1121f; --rcs-white:#ffffff; }
+body { @apply bg-rcsblack text-rcswhite antialiased; }
+.container { @apply max-w-6xl mx-auto px-4; }
+.section { @apply py-12 md:py-16; }
+.h1 { @apply text-3xl md:text-5xl font-extrabold; }
+.h2 { @apply text-2xl md:text-3xl font-bold; }
+.sub { @apply text-base md:text-lg text-gray-300; }
+.btn { @apply inline-flex items-center justify-center px-4 py-3 rounded-md font-semibold; }
+.btn-primary { @apply bg-rcsred text-white hover:opacity-90; }
+.btn-outline { @apply border border-rcsred text-white hover:bg-rcsred/10; }
+.card { @apply bg-rcsgray rounded-lg p-6 border border-white/10; }
+.topbar { @apply sticky top-0 z-50 bg-rcsgray/80 backdrop-blur; }

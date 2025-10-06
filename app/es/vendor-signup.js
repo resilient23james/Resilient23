@@ -1,0 +1,1 @@
+export default function Page(){return (<section className='section container'><h1 className='h1 mb-4'>Únete a la Red de Proveedores</h1><p className='sub'>Cuéntanos sobre tu empresa para unirte a nuestra red.</p></section>);}

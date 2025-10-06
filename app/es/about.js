@@ -1,0 +1,1 @@
+export default function Page(){return (<section className='section container'><h1 className='h1 mb-4'>Acerca de Nosotros</h1><p className='sub'>Nuestra misión, valores e historia de liderazgo.</p></section>);}

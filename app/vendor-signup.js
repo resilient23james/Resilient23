@@ -1,0 +1,1 @@
+export default function Page(){return (<section className='section container'><h1 className='h1 mb-4'>Join Vendor Network</h1><p className='sub'>Tell us about your company to join our network.</p></section>);}

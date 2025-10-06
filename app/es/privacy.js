@@ -1,0 +1,1 @@
+export default function Page(){return (<section className='section container'><h1 className='h1 mb-4'>Política de Privacidad</h1><p className='sub'>Tu privacidad es importante para nosotros.</p></section>);}
