@@ -1,5 +1,5 @@
-import React from 'react';
-import ServiceCard from '../../components/ServiceCard';
+import ShayButton from '@/components/ShayButton';
+import ServiceCard from '@/components/ServiceCard';
 import dynamic from 'next/dynamic';
 
 const ShayAssistant = dynamic(() => import('../../components/ShayAssistant').catch(() => ({ default: () => null })), { ssr: false });
