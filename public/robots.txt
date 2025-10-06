@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://resilient23.netlify.app/sitemap.xml
