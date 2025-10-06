@@ -1,14 +1,11 @@
-import ServiceCard from '../components/ServiceCard';   // in app/page.tsx
-import ServiceCard from '../../components/ServiceCard'; // app/es/page.tsx
+import ServiceCard from '../../components/ServiceCard';
 
 export default function Page() {
   return (
-    <main className="mx-auto max-w-4xl px-4 py-12">
-      <h1 className="sr-only">Soluciones</h1>
-
-      <section className="mt-10 grid gap-6">
+    <main className="px-4 md:px-6 pb-28">
+      <section className="space-y-6 pt-6 md:pt-10">
         <ServiceCard
-          title="Limpieza"
+          title="Servicios de Instalaciones"
           desc="Programas de conserjería, porteros, cuidado de pisos y limpieza post-construcción."
         />
         <ServiceCard
