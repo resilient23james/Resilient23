@@ -1,17 +1,55 @@
 'use client';
-import Image from 'next/image';
-import {useEffect,useState} from 'react';
-import ShayModal from './ShayModal';
-export default function ShayButton(){
-  const [open,setOpen]=useState(false);
-  useEffect(()=>{ if(!open) return; const f=(e:KeyboardEvent)=>{ if(e.key==='Escape') setOpen(false); }; window.addEventListener('keydown',f); return()=>window.removeEventListener('keydown',f); },[open]);
-  return(<>
-    <button aria-label="Open Shay Assistant" onClick={()=>setOpen(true)} className="fixed bottom-6 right-6 z-40 rounded-full shadow-2xl ring-1 ring-black/5 overflow-hidden">
-      <div className="relative h-20 w-20 md:h-24 md:w-24">
-        <Image src="/shay-avatar.webp" alt="Shay Assistant" fill sizes="96px" priority className="object-cover"/>
-        <span className="absolute inset-0 rounded-full animate-pulse ring-2 ring-rose-400/40 pointer-events-none"/>
-      </div>
-    </button>
-    <ShayModal open={open} onClose={()=>setOpen(false)}/>
-  </>);
+import { useEffect, useState } from 'react';
+
+export default function ShayButton() {
+  const [open, setOpen] = useState(false);
+  useEffect(() => {
+    if (!open) return;
+    const onEsc = (e: KeyboardEvent) => e.key === 'Escape' && setOpen(false);
+    window.addEventListener('keydown', onEsc);
+    return () => window.removeEventListener('keydown', onEsc);
+  }, [open]);
+
+  return (
+    <>
+      {/* the floating avatar button */}
+      <button
+        aria-label="Open Shay Assistant"
+        onClick={() => setOpen(true)}
+        className="fixed bottom-6 right-6 z-40 rounded-full shadow-lg bg-white/90 ring-1 ring-black/10 overflow-hidden w-[84px] h-[84px]"
+      >
+        <img
+          src="/shay-avatar.jpg?v=2"
+          alt="Shay"
+          width={84}
+          height={84}
+          className="w-full h-full object-cover"
+          onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/avatar-fallback.png'; }}
+        />
+      </button>
+
+      {/* modal */}
+      {open && (
+        <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm">
+          <div className="absolute inset-x-4 bottom-6 md:bottom-auto md:inset-x-0 md:mx-auto md:top-24 md:w-[560px] rounded-2xl bg-neutral-900 text-white shadow-2xl p-6">
+            <div className="flex items-center gap-3 mb-3">
+              <img src="/shay-avatar.jpg?v=2" alt="Shay" width={36} height={36} className="rounded-full" />
+              <h3 className="text-xl font-semibold">Shay Assistant</h3>
+            </div>
+            <p className="text-neutral-200">
+              Hola/Hello — this is a placeholder chat. The visual proves the avatar bubble is wired correctly.
+            </p>
+            <div className="mt-5 text-right">
+              <button
+                onClick={() => setOpen(false)}
+                className="inline-flex items-center justify-center rounded-xl bg-white text-black px-5 py-2 font-medium shadow"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
 }
