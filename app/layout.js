@@ -1,8 +1,4 @@
-export default function RootLayout({ children }) {
-  return (
-    <html lang="en">
-      <head><title>Resilient Commercial Solutions</title></head>
-      <body>{children}</body>
-    </html>
-  );
+export const metadata = { title: 'RCS' };
+export default function RootLayout({ children }){
+  return (<html lang="en"><body>{children}</body></html>);
 }

@@ -1,0 +1,1 @@
+export default function Page(){ return (<div style={{padding:'2rem'}}>RCS Home</div>); }
