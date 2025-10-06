@@ -21,4 +21,6 @@
   "engines": {
     "node": ">=18.17.0"
   }
+  "scripts": {
+  "build": "next build && next export"
 }
