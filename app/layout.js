@@ -4,7 +4,6 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ContactModal from '@/components/ContactModal';
 import ShayAssistant from '@/components/ShayAssistant';
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
