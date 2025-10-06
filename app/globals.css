@@ -1,9 +1,0 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-.section { @apply px-4 md:px-6 max-w-6xl mx-auto; }
-.btn { @apply inline-flex items-center justify-center px-4 py-2 rounded-md border border-white/10; }
-.btn-primary { @apply bg-red text-white border-red; }
-.btn-outline { @apply hover:bg-white/5; }
-body { @apply bg-black text-white; }
