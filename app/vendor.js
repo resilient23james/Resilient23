@@ -1,1 +1,0 @@
-export default function Page(){return (<section className='section container'><h1 className='h1 mb-4'>Vendor Portal</h1><p className='sub'>Coming soon — onboarding, compliance, and job dispatch.</p></section>);}

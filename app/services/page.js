@@ -1,1 +1,0 @@
-export default function Page(){return (<section className='section container'><h1 className='h1 mb-4'>Services</h1><p className='sub'>Explore our divisions: Janitorial, Rehab & Restoration, Mobile Mechanic.</p></section>);}
