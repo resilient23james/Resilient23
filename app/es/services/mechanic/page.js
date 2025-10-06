@@ -1,4 +1,5 @@
-export default function Page(){return (<section className="section container">
+import ShayButton from '@/components/ShayButton';
+import ServiceCard from '@/components/ServiceCard';
 <h1 className="h1 mb-4">Servicios de Mecánica Móvil — Confiabilidad de flota, en su sitio.</h1>
 <p className="sub mb-8">Atendemos Tampa Bay, Florida Central, Oeste y Sur.</p>
 <div className="grid gap-6">
