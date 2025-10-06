@@ -1,1 +1,2 @@
-export default function Page(){return (<section className='section container'><h1 className='h1 mb-4'>Industrias Atendidas</h1><p className='sub'>Gobierno, Salud, Educación, Multifamiliar, Industrial.</p></section>);}
+import ShayButton from '@/components/ShayButton';
+import ServiceCard from '@/components/ServiceCard';
