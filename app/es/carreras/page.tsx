@@ -1,6 +1,7 @@
 'use client';
 
-export default function Carreras(){
+import ShayButton from '@/components/ShayButton';
+import ServiceCard from '@/components/ServiceCard';
   async function submit(e: React.FormEvent<HTMLFormElement>){
     e.preventDefault();
     const form = e.currentTarget;
