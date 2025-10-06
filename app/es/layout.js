@@ -1,4 +1,5 @@
-import './globals.css';
+import '../globals.css';   // for /app/es/layout.js
+import './globals.css';    // for /app/layout.js (English root)
 import TopBar from '@/components/TopBar';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
