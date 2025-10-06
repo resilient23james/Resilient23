@@ -1,5 +1,5 @@
-import ServiceCard from '@/components/ServiceCard';
-import ShayButton from '@/components/ShayButton';
+import ServiceCard from '../components/ServiceCard';   // in app/page.tsx
+import ServiceCard from '../../components/ServiceCard'; // in app/es/page.tsx
 export default function Page(){
   return(<main className="px-4 md:px-6 pb-28">
     <section className="space-y-6 pt-6 md:pt-10">
