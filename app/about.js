@@ -1,2 +1,8 @@
-export const metadata = { title: 'About | Resilient Commercial Solutions' };
-export default function Page(){return (<main className="container section"><h1 className="h1 mb-4">About</h1><p className="sub">Coming soon.</p></main>);}
+export default function Page() {
+  return (
+    <main>
+      <h1>About</h1>
+      <p>About Us page placeholder content.</p>
+    </main>
+  )
+}

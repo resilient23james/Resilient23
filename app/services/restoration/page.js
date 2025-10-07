@@ -1,25 +1,29 @@
-export const metadata = {
-  title: 'Rehab & Restoration | Resilient Commercial Solutions',
-  description: '24/7 commercial restoration: water, fire, mold, storm, and disaster recovery across Florida.'
-};
-export default function Page(){return (<main className="container section">
-  <h1 className="h1 mb-4">Rehab & Restoration — 24/7 Commercial Response</h1>
-  <p className="sub mb-8">Statewide rapid response with certified techs, industrial equipment, and adjuster‑ready documentation.</p>
-  <div className="grid lg:grid-cols-2 gap-6 mb-12">
-    <div className="card"><h2 className="h2 mb-2">Core Scopes</h2><ul className="list-disc pl-6 space-y-2 text-gray-300">
-      <li>Water mitigation (extraction, dehumidification, structural drying)</li>
-      <li>Fire & smoke cleanup, odor control, HVAC cleaning</li>
-      <li>Mold remediation — containment, negative air, HEPA</li>
-      <li>Storm damage — dry‑in, board‑up, debris removal</li>
-      <li>Contents handling — pack‑out, cleaning, storage</li>
-      <li>Reconstruction — drywall, flooring, paint</li>
-    </ul></div>
-    <div className="card"><h2 className="h2 mb-2">Emergency Playbook</h2><ul className="list-disc pl-6 space-y-2 text-gray-300">
-      <li><b>0–60m</b> dispatch & site safety</li>
-      <li><b>1–4h</b> extraction & equipment</li>
-      <li><b>Daily</b> readings, photos, updates</li>
-      <li><b>Build‑back</b> schedule & QC</li>
-    </ul></div>
-  </div>
-  <div className="flex gap-3"><a href="/quote" className="btn btn-primary">Request Emergency Help</a><a href="/contact" className="btn btn-outline">Talk to Restoration Lead</a></div>
-</main>);}
+import LeadForm from '@/components/forms/LeadForm';
+import Breadcrumbs from '@/components/Breadcrumbs';
+export default function Page() {
+  return (
+    <main>
+      \1
+      <div className=\"mt-4\"><LeadForm service=\"Restoration & Rehab" /></div>
+<p className="text-gray-300 mb-8">This page is scaffolded and ready for your copy. Replace bullets with your specifics.</p>
+<h2 className="text-xl md:text-2xl font-semibold mt-8 mb-3">Emergency Response</h2>
+<ul className="list-disc list-inside text-gray-300 space-y-1">
+  <li>24/7 dispatch for water, fire, and mold</li>
+  <li>Moisture mapping, containment, and remediation</li>
+</ul>
+<h2 className="text-xl md:text-2xl font-semibold mt-8 mb-3">Rehabilitation</h2>
+<ul className="list-disc list-inside text-gray-300 space-y-1">
+  <li>Selective demo, rebuild, and finishing</li>
+  <li>Insurance-ready documentation and photos</li>
+</ul>
+<h2 className="text-xl md:text-2xl font-semibold mt-8 mb-3">Continuity</h2>
+<ul className="list-disc list-inside text-gray-300 space-y-1">
+  <li>Facility handoff with punchlist and warranty</li>
+  <li>Coordination with property management</li>
+</ul>
+<div className="mt-10">
+  <a href="/contact" className="inline-block px-5 py-3 rounded bg-red-600 text-white hover:bg-red-500">Request a Quote</a>
+</div>
+    </main>
+  )
+}
