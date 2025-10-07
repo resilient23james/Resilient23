@@ -8,12 +8,16 @@ export default function ContactModal(){
   useEffect(()=>{
     const onOpen = (e)=>{ setMode(e.detail?.mode || 'lead'); setOpen(true); };
     window.addEventListener('shay:open', onOpen);
-    return ()=> window.removeEventListener('shay:open', onOpen);
+    
+  if (typeof window !== 'undefined') {
+    if (document.querySelector('[data-rcs-cta-singleton]')) return null;
+  }
+  return ()=> window.removeEventListener('shay:open', onOpen);
   },[]);
 
   if(!open) return null;
   return (
-    <div className="fixed inset-0 bg-black/70 flex items-center justify-center p-4 z-50" onClick={()=>setOpen(false)}>
+    <div data-rcs-cta-singleton="true" className="fixed inset-0 bg-black/70 flex items-center justify-center p-4 z-50" onClick={()=>setOpen(false)}>
       <div className="bg-gray p-6 rounded-lg w-full max-w-lg" onClick={e=>e.stopPropagation()}>
         <h3 className="h2 mb-3">Contact — {mode === 'vendor' ? 'Vendor Signup' : mode === 'mechanic' ? 'Mobile Mechanic' : mode === 'restoration' ? 'Restoration' : 'Quote'}</h3>
         <form className="grid gap-3" method="POST" action="/.netlify/functions/sendLead">
