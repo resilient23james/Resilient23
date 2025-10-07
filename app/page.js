@@ -14,6 +14,28 @@ export default function Page(){
       </section>
       <Industries/>
       <section className="container section"><TestimonialsCarousel/></section>
-    </main>
+    
+<section aria-labelledby="metrics" className="mt-12">
+  <h2 id="metrics" className="sr-only">Key operating metrics</h2>
+  <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+    <div>
+      <h3 className="text-4xl font-bold text-red-600">1M+</h3>
+      <p className="text-gray-400">Sq. ft. serviced monthly</p>
+    </div>
+    <div>
+      <h3 className="text-4xl font-bold text-red-600">95%</h3>
+      <p className="text-gray-400">Client retention rate</p>
+    </div>
+    <div>
+      <h3 className="text-4xl font-bold text-red-600">60 min</h3>
+      <p className="text-gray-400">Average fleet dispatch time</p>
+    </div>
+    <div>
+      <h3 className="text-4xl font-bold text-red-600">24/7</h3>
+      <p className="text-gray-400">Emergency restoration response</p>
+    </div>
+  </div>
+</section>
+</main>
   );
 }
