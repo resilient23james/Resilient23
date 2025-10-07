@@ -1,0 +1,2 @@
+export const metadata = { title: 'Servicios de Limpieza | Resilient Commercial Solutions' };
+export default function Page(){return (<main className="container section"><h1 className="h1 mb-4">Servicios de Limpieza</h1><p className="sub">Coming soon.</p><ul className='list-disc pl-6 text-gray-300 mt-4'><li>Porter diario y limpieza nocturna</li><li>Cuidado de pisos (VCT, baldosa, alfombra)</li><li>Altos y desinfección</li></ul></main>);}
