@@ -1,0 +1,2 @@
+export const metadata = { title: 'Janitorial Services | Resilient Commercial Solutions' };
+export default function Page(){return (<main className="container section"><h1 className="h1 mb-4">Janitorial Services</h1><p className="sub">Coming soon.</p><ul className='list-disc pl-6 text-gray-300 mt-4'><li>Daily porter & night cleaning</li><li>Floor care (VCT, tile, carpet)</li><li>High dusting & disinfecting</li></ul></main>);}
